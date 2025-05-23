@@ -13,12 +13,27 @@
         android:theme="@style/Theme.LearningManagementSystem"
         tools:targetApi="31">
         <activity
+            android:name=".CreateStudent"
+            android:exported="false" />
+        <activity
+            android:name=".StudentDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".InstructorDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".AdminDashboard"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".Login"
+            android:exported="false" />
+        <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.Design.NoActionBar"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Design.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
