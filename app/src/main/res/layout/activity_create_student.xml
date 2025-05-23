@@ -1,10 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".CreateStudent">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/studentregTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register New Student"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/edtStudentID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Student ID"
+            android:layout_below="@id/studentregTitle"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/edtStudentName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Student Name"
+            android:layout_below="@id/edtStudentID"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/edtStudentSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Student Surname"
+            android:layout_below="@id/edtStudentName"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/edtStudentDOB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date of Birth (yyyy-MM-dd)"
+            android:layout_below="@id/edtStudentSurname"
+            android:layout_marginTop="12dp" />
+
+        <Button
+            android:id="@+id/btnSubmitStudent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@id/edtStudentDOB"
+            android:layout_marginTop="16dp" />
+    </RelativeLayout>
+</ScrollView>
