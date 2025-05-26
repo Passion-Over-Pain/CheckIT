@@ -30,7 +30,7 @@ public class ViewStudentList extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        SQLiteDatabase db = openOrCreateDatabase("lmsDB", Context.MODE_PRIVATE, null);
+        SQLiteDatabase db = DatabaseManager.getDB(this);
         studentRecords = findViewById(R.id.studentRecordList);
 
         final Cursor cursor = db.rawQuery("select * from students", null);

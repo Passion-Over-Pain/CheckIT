@@ -61,7 +61,7 @@ public class CreateStudent extends AppCompatActivity {
             String sSurname = edtStudentSurname.getText().toString();
             String sDOB = edtStudentDOB.getText().toString();
 
-            SQLiteDatabase db = openOrCreateDatabase("lmsDB", Context.MODE_PRIVATE, null);
+            SQLiteDatabase db = DatabaseManager.getDB(this);
             db.execSQL("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, sID VARCHAR, sName VARCHAR, sSurname VARCHAR, sDOB VARCHAR)");
 
             String sql = "INSERT INTO students (sID, sName, sSurname, sDOB) VALUES (?, ?, ?, ?)";
