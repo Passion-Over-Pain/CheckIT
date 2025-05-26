@@ -24,12 +24,21 @@ public class AdminDashboard extends AppCompatActivity {
             return insets;
         });
 
-        Button btnCreateStudent = findViewById(R.id.btncreateStudent);
+        Button btnCreateStudent = findViewById(R.id.btnCreateStudent);
+
+        Button btnCreateInstructor = findViewById(R.id.btnCreateInstructor);
 
         btnCreateStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminDashboard.this, CreateStudent.class));
+            }
+        });
+
+        btnCreateInstructor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminDashboard.this, CreateInstructor.class));
             }
         });
     }

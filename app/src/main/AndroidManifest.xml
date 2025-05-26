@@ -13,6 +13,21 @@
         android:theme="@style/Theme.LearningManagementSystem"
         tools:targetApi="31">
         <activity
+            android:name=".ViewModuleList"
+            android:exported="false" />
+        <activity
+            android:name=".InstructorDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".ViewInstructorList"
+            android:exported="false" />
+        <activity
+            android:name=".CreateModule"
+            android:exported="false" />
+        <activity
+            android:name=".CreateInstructor"
+            android:exported="false" />
+        <activity
             android:name=".ViewStudentList"
             android:exported="false" />
         <activity
@@ -20,9 +35,6 @@
             android:exported="false" />
         <activity
             android:name=".StudentDashboard"
-            android:exported="false" />
-        <activity
-            android:name=".InstructorDashboard"
             android:exported="false" />
         <activity
             android:name=".AdminDashboard"

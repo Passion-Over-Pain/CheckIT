@@ -1,0 +1,68 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/instructorRegTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register New Instructor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/edtInstructorID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Instructor ID"
+            android:layout_below="@id/instructorRegTitle"
+            android:layout_marginTop="16dp" />
+
+        <EditText
+            android:id="@+id/edtInstructorName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Instructor Name"
+            android:layout_below="@id/edtInstructorID"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/edtInstructorSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Instructor Surname"
+            android:layout_below="@id/edtInstructorName"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/edtInstructorEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Instructor Email"
+            android:layout_below="@id/edtInstructorSurname"
+            android:layout_marginTop="12dp" />
+
+        <Button
+            android:id="@+id/btnSubmitInstructor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_below="@id/edtInstructorEmail"
+            android:layout_marginTop="10dp" />
+
+        <Button
+            android:id="@+id/btnViewInstructors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Instructors"
+            android:layout_below="@id/btnSubmitInstructor"
+            android:layout_marginTop="10dp" />
+    </RelativeLayout>
+</ScrollView>

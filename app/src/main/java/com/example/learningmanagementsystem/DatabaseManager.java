@@ -10,26 +10,36 @@ public class DatabaseManager {
     public static void initDatabase(Context context) {
         SQLiteDatabase db = context.openOrCreateDatabase(DB_NAME, DB_MODE, null);
 
-        // Create Students table
+        // Create Students table with new naming convention
         db.execSQL("CREATE TABLE IF NOT EXISTS students (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, " +
-                "email TEXT, " +
-                "course TEXT);");
+                "sID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "sName TEXT, " +
+                "sSurname TEXT, " +
+                "sDOB TEXT);");
 
-        // Create Instructors table
+        // Create Instructors table with new naming convention
         db.execSQL("CREATE TABLE IF NOT EXISTS instructors (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, " +
-                "email TEXT, " +
-                "department TEXT);");
+                "iID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "iName TEXT, " +
+                "iSurname TEXT, " +
+                "iEmail TEXT);");
 
-        // Create Modules table
+        // Create Modules table with new naming convention
         db.execSQL("CREATE TABLE IF NOT EXISTS modules (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "title TEXT, " +
-                "description TEXT, " +
-                "instructor_id INTEGER);");
+                "mID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "mName TEXT, " +
+                "mDuration TEXT, " +
+                "instructor_id INTEGER, " +
+                "FOREIGN KEY (instructor_id) REFERENCES instructors(iID));");
+
+    }
+
+    public static void dropAllTables(Context context) {
+        SQLiteDatabase db = getDB(context);
+
+        db.execSQL("DROP TABLE IF EXISTS modules;");
+        db.execSQL("DROP TABLE IF EXISTS instructors;");
+        db.execSQL("DROP TABLE IF EXISTS students;");
     }
 
     public static SQLiteDatabase getDB(Context context) {
