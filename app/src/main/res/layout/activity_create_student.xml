@@ -53,8 +53,16 @@
             android:id="@+id/btnSubmitStudent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
             android:layout_below="@id/edtStudentDOB"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="10dp"
+            android:text="Submit" />
+
+        <Button
+            android:id="@+id/btnViewStudents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnSubmitStudent"
+            android:layout_marginTop="10dp"
+            android:text="View Students" />
     </RelativeLayout>
 </ScrollView>
