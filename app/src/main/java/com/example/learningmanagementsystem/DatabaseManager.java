@@ -41,8 +41,8 @@ public class DatabaseManager {
                 "tID TEXT, " +                              // Logical task ID
                 "tName TEXT NOT NULL, " +
                 "tDate TEXT NOT NULL, " +
-                "tModule TEXT NOT NULL, " +                 // Refers to modules.mID
-                "tStudent TEXT NOT NULL, " +                // Refers to students.sID
+                "tModule TEXT NOT NULL, " +
+                "tStudent TEXT NOT NULL, " +
                 "tStatus TEXT DEFAULT 'Incomplete', " +
                 "FOREIGN KEY (tModule) REFERENCES modules(mID), " +
                 "FOREIGN KEY (tStudent) REFERENCES students(sID));");

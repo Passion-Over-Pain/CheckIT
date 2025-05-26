@@ -32,17 +32,15 @@ public class ViewTaskList extends AppCompatActivity {
             do {
                 String taskName = cursor.getString(0);
                 String dueDate = cursor.getString(1);
-                String module = cursor.getString(2);
-                int studentID = cursor.getInt(3);
-
-                String studentName = getStudentName(db, studentID);
+                String moduleName = cursor.getString(2);     // Now a string
+                String studentFullName = cursor.getString(3); // Now a string
 
                 TextView textView = new TextView(this);
                 textView.setText(
                         "Task: " + taskName + "\n" +
                                 "Due Date: " + dueDate + "\n" +
-                                "Module: " + module + "\n" +
-                                "Student: " + studentName + "\n"
+                                "Module: " + moduleName + "\n" +
+                                "Student: " + studentFullName + "\n"
                 );
                 textView.setPadding(0, 0, 0, 20);
                 taskListLayout.addView(textView);
@@ -50,16 +48,5 @@ public class ViewTaskList extends AppCompatActivity {
         }
 
         cursor.close();
-    }
-
-    private String getStudentName(SQLiteDatabase db, int studentID) {
-        Cursor c = db.rawQuery("SELECT sName, sSurname FROM students WHERE sID = ?", new String[]{String.valueOf(studentID)});
-        if (c.moveToFirst()) {
-            String fullName = c.getString(0) + " " + c.getString(1);
-            c.close();
-            return fullName;
-        }
-        c.close();
-        return "Unknown";
     }
 }

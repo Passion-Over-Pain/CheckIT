@@ -13,24 +13,19 @@ import java.util.Calendar;
 
 public class InstructorDashboard extends AppCompatActivity {
 
-    EditText edtTaskName, edtDueDate;
+    EditText edtTaskID, edtTaskName, edtDueDate;
     Spinner spinnerModules, spinnerStudents;
-    Button btnCreateTask;
-
-    Button btnViewTasks;
-
+    Button btnCreateTask, btnViewTasks;
 
     ArrayList<String> moduleNames = new ArrayList<>();
-    ArrayList<Integer> moduleIDs = new ArrayList<>();
-
     ArrayList<String> studentNames = new ArrayList<>();
-    ArrayList<Integer> studentIDs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instructor_dashboard);
 
+        edtTaskID = findViewById(R.id.edtTaskID);
         edtTaskName = findViewById(R.id.edtTaskName);
         edtDueDate = findViewById(R.id.edtDueDate);
         spinnerModules = findViewById(R.id.spinnerModules);
@@ -53,13 +48,11 @@ public class InstructorDashboard extends AppCompatActivity {
 
     private void loadModules() {
         SQLiteDatabase db = DatabaseManager.getDB(this);
-        Cursor cursor = db.rawQuery("SELECT mID, mName FROM modules", null);
+        Cursor cursor = db.rawQuery("SELECT mName FROM modules", null);
         moduleNames.clear();
-        moduleIDs.clear();
 
         while (cursor.moveToNext()) {
-            moduleIDs.add(cursor.getInt(0));
-            moduleNames.add(cursor.getString(1));
+            moduleNames.add(cursor.getString(0));
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, moduleNames);
@@ -71,13 +64,11 @@ public class InstructorDashboard extends AppCompatActivity {
 
     private void loadStudents() {
         SQLiteDatabase db = DatabaseManager.getDB(this);
-        Cursor cursor = db.rawQuery("SELECT sID, sName, sSurname FROM students", null);
+        Cursor cursor = db.rawQuery("SELECT sName, sSurname FROM students", null);
         studentNames.clear();
-        studentIDs.clear();
 
         while (cursor.moveToNext()) {
-            studentIDs.add(cursor.getInt(0));
-            String fullName = cursor.getString(1) + " " + cursor.getString(2);
+            String fullName = cursor.getString(0) + " " + cursor.getString(1);
             studentNames.add(fullName);
         }
 
@@ -101,30 +92,29 @@ public class InstructorDashboard extends AppCompatActivity {
     }
 
     private void createTask() {
+        String taskID = edtTaskID.getText().toString().trim();
         String taskName = edtTaskName.getText().toString().trim();
         String dueDate = edtDueDate.getText().toString().trim();
 
-        if (taskName.isEmpty() || dueDate.isEmpty()) {
+        if (taskID.isEmpty() || taskName.isEmpty() || dueDate.isEmpty()) {
             Toast.makeText(this, "Please fill all fields.", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        int selectedModuleID = moduleIDs.get(spinnerModules.getSelectedItemPosition());
-        int selectedStudentID = studentIDs.get(spinnerStudents.getSelectedItemPosition());
+        String selectedModule = spinnerModules.getSelectedItem().toString();
+        String selectedStudent = spinnerStudents.getSelectedItem().toString();
 
         SQLiteDatabase db = DatabaseManager.getDB(this);
-        db.execSQL("INSERT INTO tasks (tName, tDate, tModule, tStudent, tStatus) VALUES (?, ?, ?, ?, ?)",
-                new Object[]{taskName, dueDate, selectedModuleID, selectedStudentID, "incomplete"});
+        db.execSQL("INSERT INTO tasks (tID, tName, tDate, tModule, tStudent, tStatus) VALUES (?, ?, ?, ?, ?, ?)",
+                new Object[]{taskID, taskName, dueDate, selectedModule, selectedStudent, "incomplete"});
 
         Toast.makeText(this, "Task created and assigned.", Toast.LENGTH_SHORT).show();
 
         // Clear fields
+        edtTaskID.setText("");
         edtTaskName.setText("");
         edtDueDate.setText("");
         spinnerModules.setSelection(0);
         spinnerStudents.setSelection(0);
     }
-
-
-
 }
