@@ -19,6 +19,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginBottom="20dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -60,23 +61,21 @@
             android:id="@+id/spinnerModules"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:prompt="Select Module" />
+            android:layout_marginTop="10dp" />
 
         <!-- Student Spinner -->
         <Spinner
             android:id="@+id/spinnerStudents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:prompt="Select Student" />
+            android:layout_marginTop="10dp" />
 
         <!-- Submit Button -->
         <Button
-            android:id="@+id/btnSubmitTask"
+            android:id="@+id/btnCreateTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit Task"
+            android:text="Create Task"
             android:layout_marginTop="20dp" />
 
         <!-- View Tasks Button -->
