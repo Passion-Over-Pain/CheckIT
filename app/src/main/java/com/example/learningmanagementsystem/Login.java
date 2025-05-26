@@ -16,6 +16,7 @@ public class Login extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        DatabaseManager.initDatabase(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 

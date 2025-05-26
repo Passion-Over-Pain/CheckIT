@@ -1,6 +1,7 @@
 package com.example.learningmanagementsystem;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,6 +16,9 @@ public class InstructorDashboard extends AppCompatActivity {
     EditText edtTaskName, edtDueDate;
     Spinner spinnerModules, spinnerStudents;
     Button btnCreateTask;
+
+    Button btnViewTasks;
+
 
     ArrayList<String> moduleNames = new ArrayList<>();
     ArrayList<Integer> moduleIDs = new ArrayList<>();
@@ -32,6 +36,7 @@ public class InstructorDashboard extends AppCompatActivity {
         spinnerModules = findViewById(R.id.spinnerModules);
         spinnerStudents = findViewById(R.id.spinnerStudents);
         btnCreateTask = findViewById(R.id.btnCreateTask);
+        btnViewTasks = findViewById(R.id.btnViewTasks);
 
         loadModules();
         loadStudents();
@@ -39,6 +44,11 @@ public class InstructorDashboard extends AppCompatActivity {
         edtDueDate.setOnClickListener(v -> showDatePicker());
 
         btnCreateTask.setOnClickListener(v -> createTask());
+
+        btnViewTasks.setOnClickListener(v -> {
+            Intent intent = new Intent(InstructorDashboard.this, ViewTaskList.class);
+            startActivity(intent);
+        });
     }
 
     private void loadModules() {
@@ -114,4 +124,7 @@ public class InstructorDashboard extends AppCompatActivity {
         spinnerModules.setSelection(0);
         spinnerStudents.setSelection(0);
     }
+
+
+
 }

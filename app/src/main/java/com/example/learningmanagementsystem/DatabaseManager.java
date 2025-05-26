@@ -12,33 +12,37 @@ public class DatabaseManager {
 
         // Create Students table
         db.execSQL("CREATE TABLE IF NOT EXISTS students (" +
-                "sID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +  // Internal DB ID
+                "sID TEXT, " +                              // Logical student ID
                 "sName TEXT, " +
                 "sSurname TEXT, " +
                 "sDOB TEXT);");
 
         // Create Instructors table
         db.execSQL("CREATE TABLE IF NOT EXISTS instructors (" +
-                "iID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +  // Internal DB ID
+                "iID TEXT, " +                              // Logical instructor ID
                 "iName TEXT, " +
                 "iSurname TEXT, " +
                 "iEmail TEXT);");
 
         // Create Modules table
         db.execSQL("CREATE TABLE IF NOT EXISTS modules (" +
-                "mID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +  // Internal DB ID
+                "mID TEXT, " +                              // Logical module ID
                 "mName TEXT, " +
                 "mDuration TEXT, " +
-                "instructor_id INTEGER, " +
+                "instructor_id TEXT, " +                    // Refers to instructors.iID
                 "FOREIGN KEY (instructor_id) REFERENCES instructors(iID));");
 
-        //  Create Tasks table
+        // Create Tasks table
         db.execSQL("CREATE TABLE IF NOT EXISTS tasks (" +
-                "tID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +  // Internal DB ID
+                "tID TEXT, " +                              // Logical task ID
                 "tName TEXT NOT NULL, " +
                 "tDate TEXT NOT NULL, " +
-                "tModule INTEGER NOT NULL, " +
-                "tStudent INTEGER NOT NULL, " +
+                "tModule TEXT NOT NULL, " +                 // Refers to modules.mID
+                "tStudent TEXT NOT NULL, " +                // Refers to students.sID
                 "tStatus TEXT DEFAULT 'Incomplete', " +
                 "FOREIGN KEY (tModule) REFERENCES modules(mID), " +
                 "FOREIGN KEY (tStudent) REFERENCES students(sID));");
