@@ -1,6 +1,7 @@
 package com.example.learningmanagementsystem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
@@ -18,7 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class CreateStudent extends AppCompatActivity {
 
     EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB;
-    Button btnSubmit;
+    Button btnSubmit, btnView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,22 +27,29 @@ public class CreateStudent extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_create_student);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+//            return insets;
+//        });
 
         edtStudentID = findViewById(R.id.edtStudentID);
         edtStudentName = findViewById(R.id.edtStudentName);
         edtStudentSurname = findViewById(R.id.edtStudentSurname);
         edtStudentDOB = findViewById(R.id.edtStudentDOB);
         btnSubmit = findViewById(R.id.btnSubmitStudent);
+        btnView = findViewById(R.id.btnViewStudents);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 insertStudent();
+            }
+        });
+        btnView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ViewStudentList.class));
             }
         });
     }

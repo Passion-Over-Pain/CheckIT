@@ -33,16 +33,40 @@ public class ViewStudentList extends AppCompatActivity {
         SQLiteDatabase db = openOrCreateDatabase("lmsDB", Context.MODE_PRIVATE, null);
         studentRecords = findViewById(R.id.studentRecordList);
 
-        final Cursor cursor = db.rawQuery("select * from records", null);
+        final Cursor cursor = db.rawQuery("select * from students", null);
 
-        int sID cursor.getColumnIndex("sID");
-        int sName cursor.getColumnIndex("sName");
-        int sSurname cursor.getColumnIndex("sSurname");
-        int sDOB cursor.getColumnIndex("sDOB");
+        int sID = cursor.getColumnIndex("sID");
+        int sName = cursor.getColumnIndex("sName");
+        int sSurname =  cursor.getColumnIndex("sSurname");
+        int sDOB = cursor.getColumnIndex("sDOB");
 
         myStudentRecords.clear();
 
         arrayAdapter = new ArrayAdapter(this, androidx.constraintlayout.widget.R.layout.support_simple_spinner_dropdown_item, myStudentRecords);
         studentRecords.setAdapter(arrayAdapter);
+
+        final ArrayList<Student> stud = new ArrayList<Student>();
+
+        if((cursor.moveToFirst()))
+        {
+            do
+
+
+            {
+                    Student stu = new Student();
+                    stu.sID = cursor.getString(sID);
+                    stu.sName = cursor.getString(sName);
+                    stu.sSurname = cursor.getString(sSurname);
+                    stu.sDOB = cursor.getString(sDOB);
+
+                    stud.add(stu);
+
+                    myStudentRecords.add(cursor.getString(sID) + "\t" + cursor.getString(sName) + "\t" + cursor.getString(sSurname) + "\t" + cursor.getString(sDOB));
+            }
+                while (cursor.moveToNext());
+                arrayAdapter.notifyDataSetChanged();
+                studentRecords.invalidateViews();
+
+        }
     }
 }

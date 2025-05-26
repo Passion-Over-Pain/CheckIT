@@ -24,7 +24,7 @@ public class AdminDashboard extends AppCompatActivity {
             return insets;
         });
 
-        Button btnCreateStudent = (Button) findViewById(R.id.btncreateStudent);
+        Button btnCreateStudent = findViewById(R.id.btncreateStudent);
 
         btnCreateStudent.setOnClickListener(new View.OnClickListener() {
             @Override
