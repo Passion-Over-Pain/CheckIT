@@ -28,6 +28,9 @@ public class AdminDashboard extends AppCompatActivity {
 
         Button btnCreateInstructor = findViewById(R.id.btnCreateInstructor);
 
+        Button btnCreateModule = findViewById(R.id.btnCreateModule);
+
+
         btnCreateStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +42,13 @@ public class AdminDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(AdminDashboard.this, CreateInstructor.class));
+            }
+        });
+
+        btnCreateModule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminDashboard.this, CreateModule.class));
             }
         });
     }
