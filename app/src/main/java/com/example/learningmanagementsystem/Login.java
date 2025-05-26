@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
-
+//Focusing on design now
     EditText edtUsername, edtPassword;
     Button btnLogin;
 
