@@ -5,7 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StudentDashboard">
+    tools:context=".StudentDashboard"
+    android:background="@drawable/loginbk">
 
     <ScrollView
         android:id="@+id/scrStudentTask"

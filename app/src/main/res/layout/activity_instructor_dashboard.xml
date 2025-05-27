@@ -2,14 +2,16 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="20dp"
-        android:gravity="center_horizontal">
+        android:padding="45dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/loginbk">
 
         <!-- Header Title -->
         <TextView
@@ -76,7 +78,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Create Task"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/orange" />
 
         <!-- View Tasks Button -->
         <Button
@@ -84,6 +87,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="View Tasks"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/black"
+            android:textColor="@android:color/white" />
+
     </LinearLayout>
 </ScrollView>
