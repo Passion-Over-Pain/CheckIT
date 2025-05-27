@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center_horizontal">
+
+        <!-- Header Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Instructor Dashboard"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create New Task"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Task ID -->
+        <EditText
+            android:id="@+id/edtTaskID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task ID"
+            android:inputType="text" />
+
+        <!-- Task Name -->
+        <EditText
+            android:id="@+id/edtTaskName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Task Name"
+            android:inputType="text"
+            android:layout_marginTop="10dp" />
+
+        <!-- Due Date (Date Picker) -->
+        <EditText
+            android:id="@+id/edtDueDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Due Date"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none"
+            android:layout_marginTop="10dp" />
+
+        <!-- Module Spinner -->
+        <Spinner
+            android:id="@+id/spinnerModules"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+        <!-- Student Spinner -->
+        <Spinner
+            android:id="@+id/spinnerStudents"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" />
+
+        <!-- Submit Button -->
+        <Button
+            android:id="@+id/btnCreateTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Task"
+            android:layout_marginTop="20dp" />
+
+        <!-- View Tasks Button -->
+        <Button
+            android:id="@+id/btnViewTasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="View Tasks"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+</ScrollView>
