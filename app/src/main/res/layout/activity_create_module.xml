@@ -21,29 +21,89 @@
             android:textStyle="bold"
             android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/edtModuleID"
+        <!-- Module ID -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Module ID"
-            android:inputType="text"
-            android:layout_marginTop="12dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
 
-        <EditText
-            android:id="@+id/edtModuleName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Module Name"
-            android:inputType="text"
-            android:layout_marginTop="12dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your icon -->
 
-        <EditText
-            android:id="@+id/edtModuleDuration"
+            <EditText
+                android:id="@+id/edtModuleID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Module ID"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Module Name -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Module Duration (e.g. 3 months)"
-            android:inputType="text"
-            android:layout_marginTop="12dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your icon -->
+
+            <EditText
+                android:id="@+id/edtModuleName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Module Name"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Module Duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your icon -->
+
+            <EditText
+                android:id="@+id/edtModuleDuration"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Module Duration (e.g. 3 months)"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnSubmitModule"

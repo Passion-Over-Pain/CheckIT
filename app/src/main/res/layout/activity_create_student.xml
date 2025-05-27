@@ -21,37 +21,121 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/edtStudentID"
+        <!-- Student ID -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Student ID"
-            android:layout_marginTop="16dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-        <EditText
-            android:id="@+id/edtStudentName"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtStudentID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Student ID"
+                android:inputType="text"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Student Name -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Student Name"
-            android:layout_marginTop="12dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-        <EditText
-            android:id="@+id/edtStudentSurname"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtStudentName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Student Name"
+                android:inputType="text"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Student Surname -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Student Surname"
-            android:layout_marginTop="12dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-        <EditText
-            android:id="@+id/edtStudentDOB"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtStudentSurname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Student Surname"
+                android:inputType="text"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Student DOB -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Date of Birth"
-            android:focusable="false"
-            android:clickable="true"
-            android:padding="8dp"
-            android:layout_marginTop="12dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtStudentDOB"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Date of Birth"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Submit Button -->
         <Button
             android:id="@+id/btnSubmitStudent"
             android:layout_width="match_parent"

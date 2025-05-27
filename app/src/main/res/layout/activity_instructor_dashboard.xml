@@ -31,39 +31,97 @@
             android:layout_marginBottom="20dp" />
 
         <!-- Task ID -->
-        <EditText
-            android:id="@+id/edtTaskID"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Task ID"
-            android:inputType="text" />
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/task" />
+
+            <EditText
+                android:id="@+id/edtTaskID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Task ID"
+                android:inputType="text"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
 
         <!-- Task Name -->
-        <EditText
-            android:id="@+id/edtTaskName"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Task Name"
-            android:inputType="text"
-            android:layout_marginTop="10dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
 
-        <!-- Due Date (Date Picker) -->
-        <EditText
-            android:id="@+id/edtDueDate"
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/task" />
+
+            <EditText
+                android:id="@+id/edtTaskName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Task Name"
+                android:inputType="text"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Due Date -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Due Date"
-            android:focusable="false"
-            android:clickable="true"
-            android:inputType="none"
-            android:layout_marginTop="10dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/date" />
+
+            <EditText
+                android:id="@+id/edtDueDate"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Due Date"
+                android:focusable="false"
+                android:clickable="true"
+                android:inputType="none"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
 
         <!-- Module Spinner -->
         <Spinner
             android:id="@+id/spinnerModules"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="16dp" />
 
         <!-- Student Spinner -->
         <Spinner
