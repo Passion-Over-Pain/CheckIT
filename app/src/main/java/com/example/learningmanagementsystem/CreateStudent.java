@@ -38,7 +38,7 @@ public class CreateStudent extends AppCompatActivity {
         edtStudentSurname = findViewById(R.id.edtStudentSurname);
         edtStudentDOB = findViewById(R.id.edtStudentDOB);
         btnSubmit = findViewById(R.id.btnSubmitStudent);
-        btnView = findViewById(R.id.btnViewStudents);
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,12 +46,7 @@ public class CreateStudent extends AppCompatActivity {
                 insertStudent();
             }
         });
-        btnView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ViewStudentList.class));
-            }
-        });
+
     }
 
     private void insertStudent() {

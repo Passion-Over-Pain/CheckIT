@@ -89,6 +89,7 @@ public class StudentDashboard extends AppCompatActivity {
                 taskInfo.setLayoutParams(new LinearLayout.LayoutParams(
                         0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f
                 ));
+                taskInfo.setMinHeight(200); // <-- Increase height here (in pixels)
 
                 if ("completed".equalsIgnoreCase(status)) {
                     taskInfo.setAlpha(0.5f);

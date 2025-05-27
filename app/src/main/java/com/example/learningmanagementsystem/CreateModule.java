@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CreateModule extends AppCompatActivity {
 
     EditText edtModuleID, edtModuleName, edtModuleDuration;
-    Button btnSubmit, btnView;
+    Button btnSubmit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class CreateModule extends AppCompatActivity {
         edtModuleName = findViewById(R.id.edtModuleName);
         edtModuleDuration = findViewById(R.id.edtModuleDuration);
         btnSubmit = findViewById(R.id.btnSubmitModule);
-        btnView = findViewById(R.id.btnViewModules);
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,12 +37,7 @@ public class CreateModule extends AppCompatActivity {
             }
         });
 
-        btnView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ViewModuleList.class));
-            }
-        });
+
     }
 
     private void insertModule() {

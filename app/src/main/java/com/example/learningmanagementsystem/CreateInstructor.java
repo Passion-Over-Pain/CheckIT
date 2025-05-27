@@ -27,7 +27,7 @@ public class CreateInstructor extends AppCompatActivity {
         edtSurname = findViewById(R.id.edtInstructorSurname);
         edtEmail = findViewById(R.id.edtInstructorEmail);
         btnSubmit = findViewById(R.id.btnSubmitInstructor);
-        btnView = findViewById(R.id.btnViewInstructors);
+
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +36,6 @@ public class CreateInstructor extends AppCompatActivity {
             }
         });
 
-        btnView.setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ViewInstructorList.class)));
     }
 
     private void insertInstructor() {

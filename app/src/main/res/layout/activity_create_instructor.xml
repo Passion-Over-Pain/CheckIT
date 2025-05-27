@@ -53,16 +53,9 @@
             android:id="@+id/btnSubmitInstructor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit"
             android:layout_below="@id/edtInstructorEmail"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:text="Submit Instructor" />
 
-        <Button
-            android:id="@+id/btnViewInstructors"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Instructors"
-            android:layout_below="@id/btnSubmitInstructor"
-            android:layout_marginTop="10dp" />
     </RelativeLayout>
 </ScrollView>

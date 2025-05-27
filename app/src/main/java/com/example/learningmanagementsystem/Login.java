@@ -44,8 +44,8 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
                 SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("firstname", "Tino");
-                editor.putString("lastname", "McKnight");
+                editor.putString("firstname", "Jasmin");
+                editor.putString("lastname", "Storm");
                 editor.apply();
 
             }
