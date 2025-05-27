@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Paint;
 import android.os.Bundle;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,24 +62,58 @@ public class StudentDashboard extends AppCompatActivity {
         SQLiteDatabase db = DatabaseManager.getDB(this);
 
         Cursor cursor = db.rawQuery(
-                "SELECT tName, tDate, tModule FROM tasks WHERE tStudent = ?",new String[]{studentFullName}
-
+                "SELECT tID, tName, tDate, tModule, tStatus FROM tasks WHERE tStudent = ?",
+                new String[]{studentFullName}
         );
 
         if (cursor.moveToFirst()) {
             do {
-                String taskName = cursor.getString(0);
-                String dueDate = cursor.getString(1);
-                String moduleName = cursor.getString(2);
+                int taskId = cursor.getInt(0); // Primary key (assumed column name: tID)
+                String taskName = cursor.getString(1);
+                String dueDate = cursor.getString(2);
+                String moduleName = cursor.getString(3);
+                String status = cursor.getString(4);
 
-                TextView textView = new TextView(this);
-                textView.setText(
-                        "Task: " + taskName + "\n" +
-                                "Due Date: " + dueDate + "\n" +
-                                "Module: " + moduleName + "\n"
-                );
-                textView.setPadding(0, 0, 0, 30);
-                taskListLayout.addView(textView);
+                // Layout container for the task
+                LinearLayout taskRow = new LinearLayout(this);
+                taskRow.setOrientation(LinearLayout.HORIZONTAL);
+                taskRow.setPadding(0, 0, 0, 30);
+                taskRow.setLayoutParams(new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                ));
+
+                // TextView for task info
+                TextView taskInfo = new TextView(this);
+                taskInfo.setText("Task: " + taskName + "\nDue: " + dueDate + "\nModule: " + moduleName);
+                taskInfo.setLayoutParams(new LinearLayout.LayoutParams(
+                        0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f
+                ));
+
+                if ("completed".equalsIgnoreCase(status)) {
+                    taskInfo.setAlpha(0.5f);
+                    taskInfo.setPaintFlags(taskInfo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                }
+
+                // Checkbox for marking completion
+                CheckBox checkBox = new CheckBox(this);
+                checkBox.setChecked("completed".equalsIgnoreCase(status));
+                checkBox.setEnabled(!"completed".equalsIgnoreCase(status)); // Disable if already completed
+
+                checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                    if (isChecked) {
+                        markTaskAsCompleted(taskId);
+                        checkBox.setEnabled(false);
+                        taskInfo.setAlpha(0.5f);
+                        taskInfo.setPaintFlags(taskInfo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        Toast.makeText(this, "Task marked as completed", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                taskRow.addView(taskInfo);
+                taskRow.addView(checkBox);
+
+                taskListLayout.addView(taskRow);
 
             } while (cursor.moveToNext());
         } else {
@@ -88,4 +124,10 @@ public class StudentDashboard extends AppCompatActivity {
 
         cursor.close();
     }
+    private void markTaskAsCompleted(int taskId) {
+        SQLiteDatabase db = DatabaseManager.getDB(this);
+        db.execSQL("UPDATE tasks SET tStatus = 'completed' WHERE tID = ?", new Object[]{taskId});
+    }
+
+
 }
