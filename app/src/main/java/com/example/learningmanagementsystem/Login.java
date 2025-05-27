@@ -38,9 +38,16 @@ public class Login extends AppCompatActivity {
                 saveLogin("instructor", username);
                startActivity(new Intent(Login.this, InstructorDashboard.class));
             }
-            else if(username.equals("student") && password.equals("password")){
+            else if(username.equals("student") && password.equals("password")) {
                 saveLogin("student", username);
-                startActivity(new Intent(Login.this, StudentDashboard.class));
+                Intent intent = new Intent(Login.this, StudentDashboard.class);
+                startActivity(intent);
+                SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("firstname", "Tino");
+                editor.putString("lastname", "McKnight");
+                editor.apply();
+
             }
             else {
                 Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
