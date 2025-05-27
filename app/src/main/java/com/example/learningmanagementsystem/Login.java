@@ -20,7 +20,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        edtUsername = findViewById(R.id.edtUsername);
+        edtUsername = findViewById(R.id.edtUseremail);
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
 

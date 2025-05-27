@@ -51,7 +51,7 @@
                     android:src="@drawable/email" />
 
                 <EditText
-                    android:id="@+id/login_email"
+                    android:id="@+id/edtUseremail"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -79,7 +79,7 @@
                     android:src="@drawable/password" />
 
                 <EditText
-                    android:id="@+id/login_password"
+                    android:id="@+id/edtPassword"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -92,7 +92,7 @@
 
             <!-- Login Button -->
             <Button
-                android:id="@+id/login_button"
+                android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
@@ -104,7 +104,7 @@
 
             <!-- Forgot Password -->
             <TextView
-                android:id="@+id/forgot_password"
+                android:id="@+id/txtForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -115,7 +115,7 @@
 
             <!-- Signup Link -->
             <TextView
-                android:id="@+id/signupRedirectText"
+                android:id="@+id/txtSignUp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
