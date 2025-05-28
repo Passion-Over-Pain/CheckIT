@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CreateInstructor extends AppCompatActivity {
 
-    EditText edtID, edtName, edtSurname, edtEmail;
+    EditText edtID, edtName, edtSurname, edtEmail, edtPassword;
     Button btnSubmit, btnView;
 
     @Override
@@ -26,6 +26,7 @@ public class CreateInstructor extends AppCompatActivity {
         edtName = findViewById(R.id.edtInstructorName);
         edtSurname = findViewById(R.id.edtInstructorSurname);
         edtEmail = findViewById(R.id.edtInstructorEmail);
+        edtPassword = findViewById(R.id.edtInstructorPassword);
         btnSubmit = findViewById(R.id.btnSubmitInstructor);
 
 
@@ -70,9 +71,11 @@ public class CreateInstructor extends AppCompatActivity {
             Toast.makeText(this, "SUCCESS: Instructor Added", Toast.LENGTH_LONG).show();
 
             // Clear the fields after successful insert
+            edtID.setText("");
             edtName.setText("");
             edtSurname.setText("");
             edtEmail.setText("");
+            edtPassword.setText("");
 
         } catch (Exception e) {
             Toast.makeText(this, "FAILED: " + e.getMessage(), Toast.LENGTH_LONG).show();

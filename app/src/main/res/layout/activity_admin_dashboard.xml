@@ -110,7 +110,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif"
-                        android:text="View Student"
+                        android:text="View Students"
                         android:textColor="#FFA726"
                         android:textSize="20sp" />
                 </RelativeLayout>

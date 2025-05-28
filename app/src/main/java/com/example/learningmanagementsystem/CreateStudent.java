@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class CreateStudent extends AppCompatActivity {
 
-    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB;
+    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB, edtStudentPassword;
     Button btnSubmit, btnView;
 
     @Override
@@ -40,6 +40,7 @@ public class CreateStudent extends AppCompatActivity {
         edtStudentName = findViewById(R.id.edtStudentName);
         edtStudentSurname = findViewById(R.id.edtStudentSurname);
         edtStudentDOB = findViewById(R.id.edtStudentDOB);
+        edtStudentPassword = findViewById(R.id.edtStudentPassword);
         btnSubmit = findViewById(R.id.btnSubmitStudent);
 
 
@@ -101,6 +102,11 @@ public class CreateStudent extends AppCompatActivity {
             statement.executeInsert();
             Toast.makeText(this, "SUCCESS: Student Record Added", Toast.LENGTH_LONG).show();
 
+            edtStudentID.setText("");
+            edtStudentName.setText("");
+            edtStudentSurname.setText("");
+            edtStudentDOB.setText("");
+            edtStudentPassword.setText("");
         } catch (Exception ex) {
             Toast.makeText(this, "FAILED: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }
