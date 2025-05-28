@@ -34,6 +34,15 @@
             android:text="DOB"
             android:textColor="#888888"
             android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/txtStudentEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123456789@mandela.ac.za"
+            android:textColor="#666666"
+            android:textSize="14sp" />
+
     </LinearLayout>
 
     <!-- Icon/Image -->

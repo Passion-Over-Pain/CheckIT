@@ -44,6 +44,28 @@ public class InstructorDashboard extends AppCompatActivity {
             Intent intent = new Intent(InstructorDashboard.this, ViewTaskList.class);
             startActivity(intent);
         });
+        EditText edtDeleteTaskID = findViewById(R.id.edtDeleteTaskID);
+        Button btnDeleteTask = findViewById(R.id.btnDeleteTask);
+
+        btnDeleteTask.setOnClickListener(v -> {
+            String deleteID = edtDeleteTaskID.getText().toString().trim();
+
+            if (deleteID.isEmpty()) {
+                Toast.makeText(this, "Please enter Task ID to delete.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            SQLiteDatabase db = DatabaseManager.getDB(this);
+            int deletedRows = db.delete("tasks", "tID = ?", new String[]{deleteID});
+
+            if (deletedRows > 0) {
+                Toast.makeText(this, "Task deleted successfully.", Toast.LENGTH_SHORT).show();
+                edtDeleteTaskID.setText("");
+            } else {
+                Toast.makeText(this, "Task ID not found.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
     private void loadModules() {

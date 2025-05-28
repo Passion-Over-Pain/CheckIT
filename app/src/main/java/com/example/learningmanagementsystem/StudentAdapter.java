@@ -29,12 +29,14 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
         TextView txtName = convertView.findViewById(R.id.txtStudentName);
         TextView txtDOB = convertView.findViewById(R.id.txtStudentDOB);
-//        ImageView imgIcon = convertView.findViewById(R.id.createstudentIcon); // optional if needed by ID
+        TextView txtEmail = convertView.findViewById(R.id.txtStudentEmail);
 
         txtName.setText(student.sName + " " + student.sSurname);
         txtDOB.setText("DOB: " + student.sDOB);
+        txtEmail.setText(student.sID + "@mandela.ac.za");
 
         return convertView;
     }
+
 }
 

@@ -135,6 +135,34 @@
                 android:textColorHint="#888888" />
         </LinearLayout>
 
+        <!-- Student Surname -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtStudentPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Student Password"
+                android:inputType="text"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
         <!-- Submit Button -->
         <Button
             android:id="@+id/btnSubmitStudent"

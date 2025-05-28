@@ -58,7 +58,6 @@
                     android:background="@android:color/transparent"
                     android:hint="Email"
                     android:inputType="textEmailAddress"
-                    android:text="admin"
                     android:textColor="@color/black"
                     android:textColorHint="#888888" />
             </LinearLayout>
@@ -87,7 +86,6 @@
                     android:background="@android:color/transparent"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:text="password"
                     android:textColor="@color/black"
                     android:textColorHint="#888888" />
             </LinearLayout>

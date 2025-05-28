@@ -34,11 +34,11 @@ public class Login extends AppCompatActivity {
                 saveLogin("admin", username);
              startActivity(new Intent(Login.this, AdminDashboard.class));
             }
-            else if(username.equals("instructor") && password.equals("password")){
+            else if(username.equals("s227284240@mandela.ac.za") && password.equals("password")){
                 saveLogin("instructor", username);
                startActivity(new Intent(Login.this, InstructorDashboard.class));
             }
-            else if(username.equals("student") && password.equals("password")) {
+            else if(username.equals("s227001656@mandela.ac.za") && password.equals("password")) {
                 saveLogin("student", username);
                 Intent intent = new Intent(Login.this, StudentDashboard.class);
                 startActivity(intent);
