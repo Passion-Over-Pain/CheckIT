@@ -1,49 +1,48 @@
 package com.example.learningmanagementsystem;
 
-import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
+import java.util.ArrayList;
 
 public class ViewTaskList extends AppCompatActivity {
 
-    LinearLayout taskListLayout;
+    ListView taskListView;
+    ArrayList<Task> taskList;
+    TaskAdapter taskAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_task_list);
 
-        taskListLayout = findViewById(R.id.taskListLayout);
+        taskListView = findViewById(R.id.taskListView);
+        taskList = new ArrayList<>();
 
         loadTasks();
+        taskAdapter = new TaskAdapter(this, taskList);
+        taskListView.setAdapter(taskAdapter);
     }
 
-    @SuppressLint("SetTextI18n")
     private void loadTasks() {
         SQLiteDatabase db = DatabaseManager.getDB(this);
 
-        Cursor cursor = db.rawQuery("SELECT tName, tDate, tModule, tStudent FROM tasks", null);
+        // Fetch all needed fields including status and tID if needed
+        Cursor cursor = db.rawQuery("SELECT tID, tName, tDate, tModule, tStudent, tStatus FROM tasks", null);
 
         if (cursor.moveToFirst()) {
             do {
-                String taskName = cursor.getString(0);
-                String dueDate = cursor.getString(1);
-                String moduleName = cursor.getString(2);     // Now a string
-                String studentFullName = cursor.getString(3); // Now a string
+                Task task = new Task();
+                task.tID = cursor.getString(0);
+                task.tName = cursor.getString(1);
+                task.tDate = cursor.getString(2);
+                task.tModule = cursor.getString(3);
+                task.tStudent = cursor.getString(4);
+                task.tStatus = cursor.getString(5);
 
-                TextView textView = new TextView(this);
-                textView.setText(
-                        "Task: " + taskName + "\n" +
-                                "Due Date: " + dueDate + "\n" +
-                                "Module: " + moduleName + "\n" +
-                                "Student: " + studentFullName + "\n"
-                );
-                textView.setPadding(0, 0, 0, 20);
-                taskListLayout.addView(textView);
+                taskList.add(task);
             } while (cursor.moveToNext());
         }
 
