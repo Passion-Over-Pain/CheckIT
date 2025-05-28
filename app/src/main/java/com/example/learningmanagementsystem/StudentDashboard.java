@@ -37,7 +37,28 @@ public class StudentDashboard extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Error: Student name missing", Toast.LENGTH_SHORT).show();
         }
+
+        taskListView.setOnItemClickListener((parent, view, position, id) -> {
+            Task selectedTask = (Task) parent.getItemAtPosition(position);
+
+            // Only update if the task is not already complete
+            if (!"Complete".equalsIgnoreCase(selectedTask.tStatus)) {
+                markTaskAsComplete(selectedTask.tID);
+                loadTasksForStudent(studentFullName); // Refresh the list
+                Toast.makeText(this, "Task marked as complete!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Task is already complete.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
+
+    private void markTaskAsComplete(String taskID) {
+        SQLiteDatabase db = DatabaseManager.getDB(this);
+
+        db.execSQL("UPDATE tasks SET tStatus = ? WHERE tID = ?", new Object[]{"Complete", taskID});
+    }
+
 
     private void loadTasksForStudent(String studentFullName) {
         SQLiteDatabase db = DatabaseManager.getDB(this);

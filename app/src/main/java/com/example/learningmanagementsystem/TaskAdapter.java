@@ -1,6 +1,8 @@
 package com.example.learningmanagementsystem;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +56,19 @@ public class TaskAdapter extends BaseAdapter {
         txtStatus.setText("Status: " + task.tStatus);
 //        icon.setImageResource(R.drawable.task); // or your task icon
 
+        if ("Complete".equalsIgnoreCase(task.tStatus)) {
+            txtStatus.setText("Status: Complete");
+            txtStatus.setTextColor(Color.GRAY);
+            txtName.setPaintFlags(txtName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+        } else {
+            txtStatus.setText("Status: Pending");
+            txtStatus.setTextColor(Color.RED);
+            txtName.setPaintFlags(0); // Remove strike-through
+        }
+
+
         return view;
     }
+
+
 }
