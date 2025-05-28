@@ -4,14 +4,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ListView;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
 public class ViewTaskList extends AppCompatActivity {
 
-    ListView taskListView;
-    ArrayList<Task> taskList;
-    TaskAdapter taskAdapter;
+    private ListView taskListView;
+    private TaskAdapter taskAdapter;
+    private ArrayList<Task> taskList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,16 +22,14 @@ public class ViewTaskList extends AppCompatActivity {
 
         taskListView = findViewById(R.id.taskListView);
         taskList = new ArrayList<>();
-
-        loadTasks();
         taskAdapter = new TaskAdapter(this, taskList);
         taskListView.setAdapter(taskAdapter);
+
+        loadTasks();
     }
 
     private void loadTasks() {
         SQLiteDatabase db = DatabaseManager.getDB(this);
-
-        // Fetch all needed fields including status and tID if needed
         Cursor cursor = db.rawQuery("SELECT tID, tName, tDate, tModule, tStudent, tStatus FROM tasks", null);
 
         if (cursor.moveToFirst()) {
@@ -47,5 +47,6 @@ public class ViewTaskList extends AppCompatActivity {
         }
 
         cursor.close();
+        taskAdapter.notifyDataSetChanged();
     }
 }
