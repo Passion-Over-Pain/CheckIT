@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,25 +19,19 @@ public class AdminDashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_admin_dashboard);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        Button btnCreateStudent = findViewById(R.id.btnCreateStudent);
-
-        Button btnCreateInstructor = findViewById(R.id.btnCreateInstructor);
-
-        Button btnCreateModule = findViewById(R.id.btnCreateModule);
-
-        Button btnView = findViewById(R.id.btnViewStudents);
-
-        Button btnViewInstructors = findViewById(R.id.btnViewInstructors);
 
 
+        RelativeLayout btnCreateStudent = findViewById(R.id.btnCreateStudent);
 
-        Button btnViewModule = findViewById(R.id.btnViewModules);
+        RelativeLayout btnCreateInstructor = findViewById(R.id.btnCreateInstructor);
+
+        RelativeLayout btnCreateModule = findViewById(R.id.btnCreateModule);
+
+        RelativeLayout btnView = findViewById(R.id.btnViewStudents);
+
+        RelativeLayout btnViewInstructors = findViewById(R.id.btnViewInstructors);
+
+        RelativeLayout btnViewModule = findViewById(R.id.btnViewModules);
 
         btnViewModule.setOnClickListener(new View.OnClickListener() {
             @Override

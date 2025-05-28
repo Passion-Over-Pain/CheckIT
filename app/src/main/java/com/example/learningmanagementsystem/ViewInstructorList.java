@@ -3,7 +3,6 @@ package com.example.learningmanagementsystem;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
@@ -17,8 +16,8 @@ import java.util.ArrayList;
 public class ViewInstructorList extends AppCompatActivity {
 
     ListView instructorRecords;
-    ArrayList<String> myInstructorRecords = new ArrayList<>();
-    ArrayAdapter<String> arrayAdapter;
+    ArrayList<Instructor> instructors = new ArrayList<>();
+    InstructorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,18 +34,16 @@ public class ViewInstructorList extends AppCompatActivity {
         instructorRecords = findViewById(R.id.instructorRecordList);
         SQLiteDatabase db = DatabaseManager.getDB(this);
 
-        final Cursor cursor = db.rawQuery("SELECT * FROM instructors", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM instructors", null);
 
         int iID = cursor.getColumnIndex("iID");
         int iName = cursor.getColumnIndex("iName");
         int iSurname = cursor.getColumnIndex("iSurname");
         int iEmail = cursor.getColumnIndex("iEmail");
 
-        myInstructorRecords.clear();
-        arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, myInstructorRecords);
-        instructorRecords.setAdapter(arrayAdapter);
-
-        final ArrayList<Instructor> instructors = new ArrayList<>();
+        instructors.clear();
+        adapter = new InstructorAdapter(this, instructors);
+        instructorRecords.setAdapter(adapter);
 
         if (cursor.moveToFirst()) {
             do {
@@ -57,18 +54,12 @@ public class ViewInstructorList extends AppCompatActivity {
                 instructor.iEmail = cursor.getString(iEmail);
 
                 instructors.add(instructor);
-
-                myInstructorRecords.add(
-                        instructor.iID + "\t" +
-                                instructor.iName + "\t" +
-                                instructor.iSurname + "\t" +
-                                instructor.iEmail
-                );
-
             } while (cursor.moveToNext());
 
-            arrayAdapter.notifyDataSetChanged();
+            adapter.notifyDataSetChanged();
             instructorRecords.invalidateViews();
         }
+
+        cursor.close();
     }
 }

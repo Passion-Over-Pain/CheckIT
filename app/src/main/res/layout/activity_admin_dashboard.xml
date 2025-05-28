@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6E6E6"
-    android:backgroundTint="#FFFFFF"
+    android:background="@drawable/activitybk"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +21,7 @@
             android:gravity="center"
             android:text="Admin Dashboard"
             android:textAlignment="center"
-            android:textColor="#FFA726"
+            android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +52,10 @@
                 app:cardElevation="25dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnCreateStudent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#F8F8F8">
 
                     <ImageView
                         android:id="@+id/imgCreateStudent"
@@ -89,6 +90,7 @@
                 app:cardElevation="25dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnViewStudents"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -108,7 +110,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="10dp"
                         android:fontFamily="sans-serif"
-                        android:text="View Student"
+                        android:text="View Students"
                         android:textColor="#FFA726"
                         android:textSize="20sp" />
                 </RelativeLayout>
@@ -138,6 +140,7 @@
                 app:cardElevation="25dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnCreateInstructor"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -174,6 +177,7 @@
                 app:cardElevation="25dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnViewInstructors"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -223,6 +227,7 @@
                 app:cardElevation="25dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnCreateModule"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -259,6 +264,7 @@
                 app:cardElevation="25dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnViewModules"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 

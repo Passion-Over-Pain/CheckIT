@@ -1,26 +1,22 @@
 package com.example.learningmanagementsystem;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Paint;
 import android.os.Bundle;
-import android.widget.CheckBox;
-import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDashboard extends AppCompatActivity {
 
-    LinearLayout taskListLayout;
+    ListView taskListView;
     String studentFullName;
 
     @Override
@@ -29,106 +25,70 @@ public class StudentDashboard extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_student_dashboard);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-
-        taskListLayout = findViewById(R.id.taskListLayout);
-
-        // Get student full name from intent extras (sent from login activity)
-
+        taskListView = findViewById(R.id.taskListView);
 
         SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         String firstName = prefs.getString("firstname", "DefaultFirst");
         String lastName = prefs.getString("lastname", "DefaultLast");
 
-
         if (firstName != null && lastName != null) {
             studentFullName = firstName + " " + lastName;
             loadTasksForStudent(studentFullName);
-
         } else {
-            // Show error if name not passed properly
-            TextView errorText = new TextView(this);
-            errorText.setText("Student name not found: "+ firstName + " "+ lastName);
-            taskListLayout.addView(errorText);
+            Toast.makeText(this, "Error: Student name missing", Toast.LENGTH_SHORT).show();
         }
+
+        taskListView.setOnItemClickListener((parent, view, position, id) -> {
+            Task selectedTask = (Task) parent.getItemAtPosition(position);
+
+            // Only update if the task is not already complete
+            if (!"Complete".equalsIgnoreCase(selectedTask.tStatus)) {
+                markTaskAsComplete(selectedTask.tID);
+                loadTasksForStudent(studentFullName); // Refresh the list
+                Toast.makeText(this, "Task marked as complete!", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Task is already complete.", Toast.LENGTH_SHORT).show();
+            }
+        });
+
     }
 
-    @SuppressLint("SetTextI18n")
-    private void loadTasksForStudent(String studentFullName) {
+    private void markTaskAsComplete(String taskID) {
         SQLiteDatabase db = DatabaseManager.getDB(this);
 
+        db.execSQL("UPDATE tasks SET tStatus = ? WHERE tID = ?", new Object[]{"Complete", taskID});
+    }
+
+
+    private void loadTasksForStudent(String studentFullName) {
+        SQLiteDatabase db = DatabaseManager.getDB(this);
+        List<Task> taskList = new ArrayList<>();
+
         Cursor cursor = db.rawQuery(
-                "SELECT tID, tName, tDate, tModule, tStatus FROM tasks WHERE tStudent = ?",
+                "SELECT tID, tName, tDate, tModule, tStudent, tStatus FROM tasks WHERE tStudent = ?",
                 new String[]{studentFullName}
         );
 
         if (cursor.moveToFirst()) {
             do {
-                int taskId = cursor.getInt(0); // Primary key (assumed column name: tID)
-                String taskName = cursor.getString(1);
-                String dueDate = cursor.getString(2);
-                String moduleName = cursor.getString(3);
-                String status = cursor.getString(4);
-
-                // Layout container for the task
-                LinearLayout taskRow = new LinearLayout(this);
-                taskRow.setOrientation(LinearLayout.HORIZONTAL);
-                taskRow.setPadding(0, 0, 0, 30);
-                taskRow.setLayoutParams(new LinearLayout.LayoutParams(
-                        LinearLayout.LayoutParams.MATCH_PARENT,
-                        LinearLayout.LayoutParams.WRAP_CONTENT
-                ));
-
-                // TextView for task info
-                TextView taskInfo = new TextView(this);
-                taskInfo.setText("Task: " + taskName + "\nDue: " + dueDate + "\nModule: " + moduleName);
-                taskInfo.setLayoutParams(new LinearLayout.LayoutParams(
-                        0, LinearLayout.LayoutParams.WRAP_CONTENT, 1f
-                ));
-                taskInfo.setMinHeight(200); // <-- Increase height here (in pixels)
-
-                if ("completed".equalsIgnoreCase(status)) {
-                    taskInfo.setAlpha(0.5f);
-                    taskInfo.setPaintFlags(taskInfo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                }
-
-                // Checkbox for marking completion
-                CheckBox checkBox = new CheckBox(this);
-                checkBox.setChecked("completed".equalsIgnoreCase(status));
-                checkBox.setEnabled(!"completed".equalsIgnoreCase(status)); // Disable if already completed
-
-                checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-                    if (isChecked) {
-                        markTaskAsCompleted(taskId);
-                        checkBox.setEnabled(false);
-                        taskInfo.setAlpha(0.5f);
-                        taskInfo.setPaintFlags(taskInfo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                        Toast.makeText(this, "Task marked as completed", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                taskRow.addView(taskInfo);
-                taskRow.addView(checkBox);
-
-                taskListLayout.addView(taskRow);
-
+                Task task = new Task();
+                task.tID = cursor.getString(0);
+                task.tName = cursor.getString(1);
+                task.tDate = cursor.getString(2);
+                task.tModule = cursor.getString(3);
+                task.tStudent = cursor.getString(4);
+                task.tStatus = cursor.getString(5);
+                taskList.add(task);
             } while (cursor.moveToNext());
-        } else {
-            TextView noTasksText = new TextView(this);
-            noTasksText.setText("No tasks assigned yet.");
-            taskListLayout.addView(noTasksText);
         }
 
         cursor.close();
-    }
-    private void markTaskAsCompleted(int taskId) {
-        SQLiteDatabase db = DatabaseManager.getDB(this);
-        db.execSQL("UPDATE tasks SET tStatus = 'completed' WHERE tID = ?", new Object[]{taskId});
-    }
 
+        if (taskList.isEmpty()) {
+            Toast.makeText(this, "No tasks assigned yet.", Toast.LENGTH_SHORT).show();
+        }
 
+        TaskAdapter adapter = new TaskAdapter(this, taskList);
+        taskListView.setAdapter(adapter);
+    }
 }
