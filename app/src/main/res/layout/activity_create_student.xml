@@ -9,7 +9,7 @@
         android:orientation="vertical"
         android:gravity="center_horizontal"
         android:padding="45dp"
-        android:background="@drawable/loginbk">
+        android:background="@drawable/activitybk">
 
         <TextView
             android:id="@+id/studentregTitle"

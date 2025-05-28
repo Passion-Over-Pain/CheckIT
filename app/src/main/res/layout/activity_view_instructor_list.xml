@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ViewInstructorList"
-    android:background="@drawable/loginbk">
+    android:background="@drawable/activitybk">
 
     <ListView
         android:id="@+id/instructorRecordList"

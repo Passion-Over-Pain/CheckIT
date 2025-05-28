@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:padding="45dp"
         android:gravity="center_horizontal"
-        android:background="@drawable/loginbk">
+        android:background="@drawable/activitybk">
 
         <TextView
             android:id="@+id/moduleRegTitle"
