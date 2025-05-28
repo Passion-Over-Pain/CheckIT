@@ -1,5 +1,6 @@
 package com.example.learningmanagementsystem;
 
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,9 +17,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Calendar;
+
 public class CreateStudent extends AppCompatActivity {
 
-    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB;
+    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB, edtStudentPassword;
     Button btnSubmit, btnView;
 
     @Override
@@ -37,6 +40,7 @@ public class CreateStudent extends AppCompatActivity {
         edtStudentName = findViewById(R.id.edtStudentName);
         edtStudentSurname = findViewById(R.id.edtStudentSurname);
         edtStudentDOB = findViewById(R.id.edtStudentDOB);
+        edtStudentPassword = findViewById(R.id.edtStudentPassword);
         btnSubmit = findViewById(R.id.btnSubmitStudent);
 
 
@@ -47,7 +51,35 @@ public class CreateStudent extends AppCompatActivity {
             }
         });
 
+        EditText edtStudentDOB = findViewById(R.id.edtStudentDOB);
+
+        edtStudentDOB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar calendar = Calendar.getInstance();
+                int year = calendar.get(Calendar.YEAR);
+                int month = calendar.get(Calendar.MONTH);
+                int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(CreateStudent.this,
+                        (view, selectedYear, selectedMonth, selectedDay) -> {
+                            // Format: yyyy-MM-dd
+                            String dob = selectedYear + "-" + String.format("%02d", (selectedMonth + 1)) + "-" + String.format("%02d", selectedDay);
+                            edtStudentDOB.setText(dob);
+                        }, year, month, day);
+
+                datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
+                datePickerDialog.show();
+            }
+
+
+        });
+
+
+
     }
+
 
     private void insertStudent() {
         try {
@@ -70,6 +102,11 @@ public class CreateStudent extends AppCompatActivity {
             statement.executeInsert();
             Toast.makeText(this, "SUCCESS: Student Record Added", Toast.LENGTH_LONG).show();
 
+            edtStudentID.setText("");
+            edtStudentName.setText("");
+            edtStudentSurname.setText("");
+            edtStudentDOB.setText("");
+            edtStudentPassword.setText("");
         } catch (Exception ex) {
             Toast.makeText(this, "FAILED: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }

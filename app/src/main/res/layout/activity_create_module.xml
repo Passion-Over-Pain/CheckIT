@@ -1,39 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_gravity="center">
+    android:fillViewport="true">
 
-    <EditText
-        android:id="@+id/edtModuleID"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Module ID"
-        android:inputType="text" />
+        android:orientation="vertical"
+        android:padding="45dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/activitybk">
 
-    <EditText
-        android:id="@+id/edtModuleName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Module Name"
-        android:inputType="text" />
+        <TextView
+            android:id="@+id/moduleRegTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register New Module"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
 
-    <EditText
-        android:id="@+id/edtModuleDuration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Module Duration (e.g. 3 months)"
-        android:inputType="text" />
+        <!-- Module ID -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
 
-    <Button
-        android:id="@+id/btnSubmitModule"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit Module"
-        android:layout_marginTop="20dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your icon -->
 
-</LinearLayout>
+            <EditText
+                android:id="@+id/edtModuleID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Module ID"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Module Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your icon -->
+
+            <EditText
+                android:id="@+id/edtModuleName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Module Name"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Module Duration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your icon -->
+
+            <EditText
+                android:id="@+id/edtModuleDuration"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Module Duration (e.g. 3 months)"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSubmitModule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/orange"
+            android:text="Submit Module" />
+
+    </LinearLayout>
+</ScrollView>

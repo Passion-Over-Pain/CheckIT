@@ -59,6 +59,10 @@ public class CreateModule extends AppCompatActivity {
             statement.executeInsert();
             Toast.makeText(this, "SUCCESS: Module Record Added", Toast.LENGTH_LONG).show();
 
+            edtModuleID.setText("");
+            edtModuleName.setText("");
+            edtModuleDuration.setText("");
+
         } catch (Exception ex) {
             Toast.makeText(this, "FAILED: " + ex.getMessage(), Toast.LENGTH_LONG).show();
         }

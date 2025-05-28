@@ -1,11 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:orientation="vertical"
+        android:padding="45dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/activitybk">
 
         <TextView
             android:id="@+id/instructorRegTitle"
@@ -14,48 +19,154 @@
             android:text="Register New Instructor"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:layout_centerHorizontal="true"
             android:layout_marginBottom="16dp" />
 
-        <EditText
-            android:id="@+id/edtInstructorID"
+        <!-- Instructor ID -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Instructor ID"
-            android:layout_below="@id/instructorRegTitle"
-            android:layout_marginTop="16dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
 
-        <EditText
-            android:id="@+id/edtInstructorName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Instructor Name"
-            android:layout_below="@id/edtInstructorID"
-            android:layout_marginTop="12dp" />
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your actual icon -->
 
-        <EditText
-            android:id="@+id/edtInstructorSurname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Instructor Surname"
-            android:layout_below="@id/edtInstructorName"
-            android:layout_marginTop="12dp" />
+            <EditText
+                android:id="@+id/edtInstructorID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor ID"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
 
-        <EditText
-            android:id="@+id/edtInstructorEmail"
+        <!-- Instructor Name -->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Instructor Email"
-            android:layout_below="@id/edtInstructorSurname"
-            android:layout_marginTop="12dp" />
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your actual icon -->
+
+            <EditText
+                android:id="@+id/edtInstructorName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Name"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Instructor Surname -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your actual icon -->
+
+            <EditText
+                android:id="@+id/edtInstructorSurname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Surname"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Instructor Email -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your actual icon -->
+
+            <EditText
+                android:id="@+id/edtInstructorEmail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Email"
+                android:inputType="textEmailAddress"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" /> <!-- Replace with your actual icon -->
+
+            <EditText
+                android:id="@+id/edtInstructorPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Password"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnSubmitInstructor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edtInstructorEmail"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/orange"
             android:text="Submit Instructor" />
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>
