@@ -4,5 +4,7 @@ public class Instructor {
     public String iID;
     public String iName;
     public String iSurname;
+
+    public String iPassword;
     public String iEmail;
 }
