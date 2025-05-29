@@ -115,33 +115,6 @@
                 android:textColor="@color/orange"
                 android:textColorHint="#888888" />
         </LinearLayout>
-        <!-- Delete Task ID Input -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/white"
-            android:orientation="horizontal"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/task" />
-
-            <EditText
-                android:id="@+id/edtDeleteTaskID"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
-                android:hint="Delete Task ID"
-                android:inputType="text"
-                android:textColor="@color/orange"
-                android:textColorHint="#888888" />
-        </LinearLayout>
 
         <!-- Module Spinner -->
         <Spinner
@@ -175,15 +148,7 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="@color/black"
             android:textColor="@android:color/white" />
-        <!-- Delete Task Button -->
-        <Button
-            android:id="@+id/btnDeleteTask"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Delete Task"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/orange"
-            android:textColor="@android:color/white" />
+
 
     </LinearLayout>
 
