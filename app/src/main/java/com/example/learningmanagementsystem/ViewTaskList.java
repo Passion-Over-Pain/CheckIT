@@ -1,8 +1,10 @@
 package com.example.learningmanagementsystem;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,18 @@ public class ViewTaskList extends AppCompatActivity {
         taskListView.setAdapter(taskAdapter);
 
         loadTasks();
+        taskListView.setOnItemClickListener((AdapterView<?> parent, android.view.View view, int position, long id) -> {
+            Task selectedTask = taskList.get(position);
+
+            Intent intent = new Intent(ViewTaskList.this, UpdateTask.class);
+            intent.putExtra("tID", selectedTask.tID);
+            intent.putExtra("tName", selectedTask.tName);
+            intent.putExtra("tDate", selectedTask.tDate);
+            intent.putExtra("tModule", selectedTask.tModule);
+            intent.putExtra("tStudent", selectedTask.tStudent);
+            intent.putExtra("tStatus", selectedTask.tStatus);
+            startActivity(intent);
+        });
     }
 
     private void loadTasks() {

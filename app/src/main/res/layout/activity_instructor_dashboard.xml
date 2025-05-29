@@ -75,7 +75,7 @@
                 android:src="@drawable/task" />
 
             <EditText
-                android:id="@+id/edtTaskName"
+                android:id="@+id/edtUpdateTaskName"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -103,7 +103,7 @@
                 android:src="@drawable/date" />
 
             <EditText
-                android:id="@+id/edtDueDate"
+                android:id="@+id/edtUpdateTaskDueDate"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -145,14 +145,14 @@
 
         <!-- Module Spinner -->
         <Spinner
-            android:id="@+id/spinnerModules"
+            android:id="@+id/spinnerUpdateTaskModule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp" />
 
         <!-- Student Spinner -->
         <Spinner
-            android:id="@+id/spinnerStudents"
+            android:id="@+id/spinnerUpdateTaskStudent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
