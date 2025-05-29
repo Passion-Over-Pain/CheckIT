@@ -16,6 +16,7 @@ public class DatabaseManager {
                 "sID TEXT, " +                              // Logical student ID
                 "sName TEXT, " +
                 "sSurname TEXT, " +
+                "sPassword TEXT, " +
                 "sDOB TEXT);");
 
         // Create Instructors table
@@ -24,6 +25,7 @@ public class DatabaseManager {
                 "iID TEXT, " +                              // Logical instructor ID
                 "iName TEXT, " +
                 "iSurname TEXT, " +
+                "iPassword TEXT, " +
                 "iEmail TEXT);");
 
         // Create Modules table

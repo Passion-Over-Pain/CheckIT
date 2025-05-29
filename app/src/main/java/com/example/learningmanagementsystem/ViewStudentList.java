@@ -1,5 +1,6 @@
 package com.example.learningmanagementsystem;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -57,7 +58,51 @@ public class ViewStudentList extends AppCompatActivity {
             adapter.notifyDataSetChanged(); // Notify custom adapter
             studentRecords.invalidateViews();
         }
+        refreshStudentList(); // 👈 Initial load
+        studentRecords.setOnItemClickListener((parent, view, position, id) -> {
+            Student selectedStudent = stud.get(position);
+
+            Intent intent = new Intent(ViewStudentList.this, UpdateStudent.class);
+            intent.putExtra("sID", selectedStudent.sID);
+            intent.putExtra("sName", selectedStudent.sName);
+            intent.putExtra("sSurname", selectedStudent.sSurname);
+            intent.putExtra("sDOB", selectedStudent.sDOB);
+            startActivity(intent);
+        });
+
 
         cursor.close(); // Always close cursor
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshStudentList();
+    }
+    private void refreshStudentList() {
+        stud.clear(); // Clear current list
+
+        SQLiteDatabase db = DatabaseManager.getDB(this);
+        Cursor cursor = db.rawQuery("SELECT * FROM students", null);
+
+        int sID = cursor.getColumnIndex("sID");
+        int sName = cursor.getColumnIndex("sName");
+        int sSurname = cursor.getColumnIndex("sSurname");
+        int sDOB = cursor.getColumnIndex("sDOB");
+
+        if (cursor.moveToFirst()) {
+            do {
+                Student stu = new Student();
+                stu.sID = cursor.getString(sID);
+                stu.sName = cursor.getString(sName);
+                stu.sSurname = cursor.getString(sSurname);
+                stu.sDOB = cursor.getString(sDOB);
+                stud.add(stu);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        adapter.notifyDataSetChanged();
+        studentRecords.invalidateViews();
+    }
+
 }

@@ -13,7 +13,7 @@
         android:gravity="center_horizontal"
         android:background="@drawable/activitybk">
 
-        <!-- Header Title -->
+        <!-- Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,12 +25,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create New Task"
+            android:text="Update Task"
             android:textSize="22sp"
             android:textStyle="bold"
             android:layout_marginBottom="20dp" />
 
-        <!-- Task ID -->
+        <!-- Task ID (non-editable) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -47,13 +47,13 @@
                 android:src="@drawable/task" />
 
             <EditText
-                android:id="@+id/edtTaskID"
+                android:id="@+id/edtUpdateTaskID"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:hint="Task ID"
-                android:inputType="text"
+                android:enabled="false"
                 android:textColor="@color/orange"
                 android:textColorHint="#888888" />
         </LinearLayout>
@@ -130,27 +130,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/btnCreateTask"
+        <!-- Task Status Spinner -->
+        <Spinner
+            android:id="@+id/spinnerUpdateTaskStatus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create Task"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/orange" />
+            android:layout_marginTop="10dp" />
 
-        <!-- View Tasks Button -->
+
+        <!-- Update Task Button -->
         <Button
-            android:id="@+id/btnViewTasks"
+            android:id="@+id/btnUpdateTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="View Tasks"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="@color/black"
+            android:text="Update Task"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/orange"
             android:textColor="@android:color/white" />
 
+        <!-- Delete Task Button -->
+        <Button
+            android:id="@+id/btnDeleteTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Task"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/orange"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
-
-
 </ScrollView>

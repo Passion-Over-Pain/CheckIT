@@ -1,8 +1,10 @@
 package com.example.learningmanagementsystem;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,18 @@ public class ViewTaskList extends AppCompatActivity {
         taskListView.setAdapter(taskAdapter);
 
         loadTasks();
+        taskListView.setOnItemClickListener((AdapterView<?> parent, android.view.View view, int position, long id) -> {
+            Task selectedTask = taskList.get(position);
+
+            Intent intent = new Intent(ViewTaskList.this, UpdateTask.class);
+            intent.putExtra("tID", selectedTask.tID);
+            intent.putExtra("tName", selectedTask.tName);
+            intent.putExtra("tDate", selectedTask.tDate);
+            intent.putExtra("tModule", selectedTask.tModule);
+            intent.putExtra("tStudent", selectedTask.tStudent);
+            intent.putExtra("tStatus", selectedTask.tStatus);
+            startActivity(intent);
+        });
     }
 
     private void loadTasks() {
@@ -49,4 +63,41 @@ public class ViewTaskList extends AppCompatActivity {
         cursor.close();
         taskAdapter.notifyDataSetChanged();
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshTaskList(); // Refresh on return
+    }
+
+    private void refreshTaskList() {
+        taskList.clear(); // Clear current list
+
+        SQLiteDatabase db = DatabaseManager.getDB(this);
+        Cursor cursor = db.rawQuery("SELECT * FROM tasks", null);
+
+        int tID = cursor.getColumnIndex("tID");
+        int tName = cursor.getColumnIndex("tName");
+        int tDate = cursor.getColumnIndex("tDate");
+        int tModule = cursor.getColumnIndex("tModule");
+        int tStudent = cursor.getColumnIndex("tStudent");
+        int tStatus = cursor.getColumnIndex("tStatus");
+
+        if (cursor.moveToFirst()) {
+            do {
+                Task task = new Task();
+                task.tID = cursor.getString(tID);
+                task.tName = cursor.getString(tName);
+                task.tDate = cursor.getString(tDate);
+                task.tModule = cursor.getString(tModule);
+                task.tStudent = cursor.getString(tStudent);
+                task.tStatus = cursor.getString(tStatus);
+                taskList.add(task);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        taskAdapter.notifyDataSetChanged();
+        taskListView.invalidateViews();
+    }
+
 }

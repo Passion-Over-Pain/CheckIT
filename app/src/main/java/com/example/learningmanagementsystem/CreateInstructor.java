@@ -44,6 +44,7 @@ public class CreateInstructor extends AppCompatActivity {
             String ID = edtID.getText().toString().trim();
             String name = edtName.getText().toString().trim();
             String surname = edtSurname.getText().toString().trim();
+            String password = edtPassword.getText().toString().trim();
             String email = edtEmail.getText().toString().trim();
 
             if (ID.isEmpty() || name.isEmpty() || surname.isEmpty() || email.isEmpty()) {
@@ -57,15 +58,17 @@ public class CreateInstructor extends AppCompatActivity {
                     "iID TEXT," +
                     "iName TEXT, " +
                     "iSurname TEXT, " +
+                    "iPassword TEXT, " +
                     "iEmail TEXT)");
 
-            String sql = "INSERT INTO instructors (iID, iName, iSurname, iEmail) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO instructors (iID, iName, iSurname, iPassword, iEmail) VALUES (?, ?, ?, ?, ?)";
             SQLiteStatement stmt = db.compileStatement(sql);
 
             stmt.bindString(1,ID);
             stmt.bindString(2, name);
             stmt.bindString(3, surname);
-            stmt.bindString(4, email);
+            stmt.bindString(4, password);
+            stmt.bindString(5, email);
 
             stmt.executeInsert();
             Toast.makeText(this, "SUCCESS: Instructor Added", Toast.LENGTH_LONG).show();
