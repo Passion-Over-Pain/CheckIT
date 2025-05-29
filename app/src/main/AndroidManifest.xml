@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Design.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateTask"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateInstructor"
+            android:exported="false" />
+        <activity
             android:name=".UpdateStudent"
             android:exported="false" />
         <activity

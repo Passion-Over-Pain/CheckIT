@@ -58,7 +58,7 @@ public class ViewStudentList extends AppCompatActivity {
             adapter.notifyDataSetChanged(); // Notify custom adapter
             studentRecords.invalidateViews();
         }
-
+        refreshStudentList(); // 👈 Initial load
         studentRecords.setOnItemClickListener((parent, view, position, id) -> {
             Student selectedStudent = stud.get(position);
 
@@ -73,4 +73,36 @@ public class ViewStudentList extends AppCompatActivity {
 
         cursor.close(); // Always close cursor
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        refreshStudentList();
+    }
+    private void refreshStudentList() {
+        stud.clear(); // Clear current list
+
+        SQLiteDatabase db = DatabaseManager.getDB(this);
+        Cursor cursor = db.rawQuery("SELECT * FROM students", null);
+
+        int sID = cursor.getColumnIndex("sID");
+        int sName = cursor.getColumnIndex("sName");
+        int sSurname = cursor.getColumnIndex("sSurname");
+        int sDOB = cursor.getColumnIndex("sDOB");
+
+        if (cursor.moveToFirst()) {
+            do {
+                Student stu = new Student();
+                stu.sID = cursor.getString(sID);
+                stu.sName = cursor.getString(sName);
+                stu.sSurname = cursor.getString(sSurname);
+                stu.sDOB = cursor.getString(sDOB);
+                stud.add(stu);
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        adapter.notifyDataSetChanged();
+        studentRecords.invalidateViews();
+    }
+
 }

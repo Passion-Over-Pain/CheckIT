@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="45dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/activitybk">
+
+        <TextView
+            android:id="@+id/instructorUpdateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Instructor"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Instructor ID -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtUpdateInstructorID"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor ID"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888"
+                android:enabled="false" />
+        </LinearLayout>
+
+        <!-- Instructor Name -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtUpdateInstructorName"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Name"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Instructor Surname -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtUpdateInstructorSurname"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Surname"
+                android:inputType="text"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Instructor Email -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtUpdateInstructorEmail"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Email"
+                android:inputType="textEmailAddress"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Instructor Password -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal"
+            android:background="@color/white"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/details" />
+
+            <EditText
+                android:id="@+id/edtUpdateInstructorPassword"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Instructor Password"
+                android:inputType="textPassword"
+                android:background="@android:color/transparent"
+                android:textColor="@color/orange"
+                android:textColorHint="#888888" />
+        </LinearLayout>
+
+        <!-- Update Button -->
+        <Button
+            android:id="@+id/btnUpdateInstructor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="@color/orange"
+            android:text="Update Instructor" />
+
+        <!-- Delete Button -->
+        <Button
+            android:id="@+id/btnDeleteInstructor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:text="Delete Instructor" />
+
+    </LinearLayout>
+</ScrollView>

@@ -67,7 +67,7 @@ public class UpdateStudent extends AppCompatActivity {
         int rows = db.update("students", values, "sID = ?", new String[]{sID});
         if (rows > 0) {
             Toast.makeText(this, "Student updated successfully.", Toast.LENGTH_SHORT).show();
-
+            setResult(RESULT_OK);
         } else {
             Toast.makeText(this, "Failed to update student.", Toast.LENGTH_SHORT).show();
         }
@@ -77,7 +77,7 @@ public class UpdateStudent extends AppCompatActivity {
         int rows = db.delete("students", "sID = ?", new String[]{sID});
         if (rows > 0) {
             Toast.makeText(this, "Student deleted successfully.", Toast.LENGTH_SHORT).show();
-
+            setResult(RESULT_OK);
         } else {
             Toast.makeText(this, "Failed to delete student.", Toast.LENGTH_SHORT).show();
         }
