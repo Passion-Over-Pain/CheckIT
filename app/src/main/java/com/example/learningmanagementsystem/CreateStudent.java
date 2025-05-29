@@ -87,17 +87,19 @@ public class CreateStudent extends AppCompatActivity {
             String sName = edtStudentName.getText().toString();
             String sSurname = edtStudentSurname.getText().toString();
             String sDOB = edtStudentDOB.getText().toString();
+            String sPassword = edtStudentPassword.getText().toString();
 
             SQLiteDatabase db = DatabaseManager.getDB(this);
-            db.execSQL("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, sID VARCHAR, sName VARCHAR, sSurname VARCHAR, sDOB VARCHAR)");
+            db.execSQL("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, sID VARCHAR, sName VARCHAR, sSurname VARCHAR,sPassword VARCHAR, sDOB VARCHAR)");
 
-            String sql = "INSERT INTO students (sID, sName, sSurname, sDOB) VALUES (?, ?, ?, ?)";
+            String sql = "INSERT INTO students (sID, sName, sSurname, sPassword, sDOB ) VALUES (?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, sID);
             statement.bindString(2, sName);
             statement.bindString(3, sSurname);
-            statement.bindString(4, sDOB);
+            statement.bindString(4, sPassword);
+            statement.bindString(5, sDOB);
 
             statement.executeInsert();
             Toast.makeText(this, "SUCCESS: Student Record Added", Toast.LENGTH_LONG).show();

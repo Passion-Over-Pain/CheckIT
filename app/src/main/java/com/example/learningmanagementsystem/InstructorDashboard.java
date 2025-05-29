@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
@@ -26,10 +25,10 @@ public class InstructorDashboard extends AppCompatActivity {
         setContentView(R.layout.activity_instructor_dashboard);
 
         edtTaskID = findViewById(R.id.edtTaskID);
-        edtTaskName = findViewById(R.id.edtTaskName);
-        edtDueDate = findViewById(R.id.edtDueDate);
-        spinnerModules = findViewById(R.id.spinnerModules);
-        spinnerStudents = findViewById(R.id.spinnerStudents);
+        edtTaskName = findViewById(R.id.edtUpdateTaskName);
+        edtDueDate = findViewById(R.id.edtUpdateTaskDueDate);
+        spinnerModules = findViewById(R.id.spinnerUpdateTaskModule);
+        spinnerStudents = findViewById(R.id.spinnerUpdateTaskStudent);
         btnCreateTask = findViewById(R.id.btnCreateTask);
         btnViewTasks = findViewById(R.id.btnViewTasks);
 
@@ -43,27 +42,6 @@ public class InstructorDashboard extends AppCompatActivity {
         btnViewTasks.setOnClickListener(v -> {
             Intent intent = new Intent(InstructorDashboard.this, ViewTaskList.class);
             startActivity(intent);
-        });
-        EditText edtDeleteTaskID = findViewById(R.id.edtDeleteTaskID);
-        Button btnDeleteTask = findViewById(R.id.btnDeleteTask);
-
-        btnDeleteTask.setOnClickListener(v -> {
-            String deleteID = edtDeleteTaskID.getText().toString().trim();
-
-            if (deleteID.isEmpty()) {
-                Toast.makeText(this, "Please enter Task ID to delete.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            SQLiteDatabase db = DatabaseManager.getDB(this);
-            int deletedRows = db.delete("tasks", "tID = ?", new String[]{deleteID});
-
-            if (deletedRows > 0) {
-                Toast.makeText(this, "Task deleted successfully.", Toast.LENGTH_SHORT).show();
-                edtDeleteTaskID.setText("");
-            } else {
-                Toast.makeText(this, "Task ID not found.", Toast.LENGTH_SHORT).show();
-            }
         });
 
     }
