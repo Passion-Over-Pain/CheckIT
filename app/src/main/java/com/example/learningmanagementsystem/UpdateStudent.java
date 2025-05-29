@@ -47,7 +47,7 @@ public class UpdateStudent extends AppCompatActivity {
         edtStudentName.setText(sName);
         edtStudentSurname.setText(sSurname);
         edtStudentDOB.setText(sDOB);
-        edtStudentPassword.setText("");
+        edtStudentPassword.setText("password");
 
         // Update student logic
         btnUpdateStudent.setOnClickListener(v -> updateStudent());

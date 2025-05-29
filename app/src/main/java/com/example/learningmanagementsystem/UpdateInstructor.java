@@ -47,7 +47,7 @@ public class UpdateInstructor extends AppCompatActivity {
         edtInstructorName.setText(iName);
         edtInstructorSurname.setText(iSurname);
         edtInstructorEmail.setText(iEmail);
-        edtInstructorPassword.setText(""); // Always blank for security
+        edtInstructorPassword.setText("password"); // Always blank for security
 
         // Update logic
         btnUpdateInstructor.setOnClickListener(v -> updateInstructor());
