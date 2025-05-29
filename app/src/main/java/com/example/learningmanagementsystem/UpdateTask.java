@@ -84,10 +84,13 @@ public class UpdateTask extends AppCompatActivity {
     }
 
     private void loadStudents() {
-        Cursor cursor = db.rawQuery("SELECT sName FROM students", null);
+        Cursor cursor = db.rawQuery("SELECT sName,sSurname FROM students", null);
         if (cursor.moveToFirst()) {
             do {
-                studentList.add(cursor.getString(0));
+                String StudentName = cursor.getString(0);
+                String StudentSurname = cursor.getString(1);
+                String StudentFullName = StudentName + " " + StudentSurname;
+                studentList.add(StudentFullName);
             } while (cursor.moveToNext());
         }
         cursor.close();
