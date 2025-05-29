@@ -65,7 +65,7 @@ public class UpdateStudentActivity extends AppCompatActivity {
             }
         });
 
-     
+
         btnDeleteStudent.setOnClickListener(v -> {
             int rows = db.delete("students", "sID = ?", new String[]{sID});
             if (rows > 0) {
