@@ -1,5 +1,6 @@
 package com.example.learningmanagementsystem;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -57,6 +58,18 @@ public class ViewStudentList extends AppCompatActivity {
             adapter.notifyDataSetChanged(); // Notify custom adapter
             studentRecords.invalidateViews();
         }
+
+        studentRecords.setOnItemClickListener((parent, view, position, id) -> {
+            Student selectedStudent = stud.get(position);
+
+            Intent intent = new Intent(ViewStudentList.this, UpdateStudent.class);
+            intent.putExtra("sID", selectedStudent.sID);
+            intent.putExtra("sName", selectedStudent.sName);
+            intent.putExtra("sSurname", selectedStudent.sSurname);
+            intent.putExtra("sDOB", selectedStudent.sDOB);
+            startActivity(intent);
+        });
+
 
         cursor.close(); // Always close cursor
     }
