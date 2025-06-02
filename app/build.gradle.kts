@@ -12,27 +12,26 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         create("release") {
-            storeFile = file("C:\\Users\\s227284240\\Documents\\my-release-key.jks") // Replace with actual path
-            storePassword = "Password123?!"
+            storeFile = file("C:\\Users\\s227284240\\Desktop\\GitHub-Projects\\IMOB-Assignment\\app\\release\\my-release-key.jks")
+            storePassword = "password"
             keyAlias = "my-key-alias"
-            keyPassword = "Password123?!"
+            keyPassword = "password"
         }
     }
 
     buildTypes {
         getByName("release") {
-            signingConfig = signingConfigs.getByName("release")
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
@@ -42,9 +41,7 @@ android {
     }
 }
 
-
 dependencies {
-
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
