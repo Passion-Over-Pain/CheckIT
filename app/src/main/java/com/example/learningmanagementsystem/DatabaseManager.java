@@ -17,6 +17,7 @@ public class DatabaseManager {
                 "sName TEXT, " +
                 "sSurname TEXT, " +
                 "sPassword TEXT, " +
+                "sEmail TEXT, " +
                 "sDOB TEXT);");
 
         // Create Instructors table

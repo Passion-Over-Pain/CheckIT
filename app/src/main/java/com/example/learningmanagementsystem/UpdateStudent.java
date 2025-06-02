@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class UpdateStudent extends AppCompatActivity {
 
-    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB, edtStudentPassword;
+    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB, edtStudentEmail, edtStudentPassword;
     Button btnUpdateStudent, btnDeleteStudent;
     SQLiteDatabase db;
     String sID;
@@ -30,6 +30,7 @@ public class UpdateStudent extends AppCompatActivity {
         edtStudentName = findViewById(R.id.edtStudentName);
         edtStudentSurname = findViewById(R.id.edtStudentSurname);
         edtStudentDOB = findViewById(R.id.edtStudentDOB);
+        edtStudentEmail = findViewById(R.id.edtStudentEmail);
         edtStudentPassword = findViewById(R.id.edtStudentPassword);
         btnUpdateStudent = findViewById(R.id.btnSubmitStudent);
         btnDeleteStudent = findViewById(R.id.btnDeleteStudent);
@@ -40,14 +41,16 @@ public class UpdateStudent extends AppCompatActivity {
         String sName = intent.getStringExtra("sName");
         String sSurname = intent.getStringExtra("sSurname");
         String sDOB = intent.getStringExtra("sDOB");
+        String sEmail = intent.getStringExtra("sEmail");
+        String sPassword = intent.getStringExtra("sPassword");
 
-        // Prefill inputs
+
         edtStudentID.setText(sID);
-        edtStudentID.setEnabled(false); // Primary Key - not editable
         edtStudentName.setText(sName);
         edtStudentSurname.setText(sSurname);
         edtStudentDOB.setText(sDOB);
-        edtStudentPassword.setText("password");
+        edtStudentEmail.setText(sEmail);
+        edtStudentPassword.setText(sPassword);
 
         // Update student logic
         btnUpdateStudent.setOnClickListener(v -> updateStudent());
@@ -62,6 +65,7 @@ public class UpdateStudent extends AppCompatActivity {
         values.put("sName", edtStudentName.getText().toString().trim());
         values.put("sSurname", edtStudentSurname.getText().toString().trim());
         values.put("sDOB", edtStudentDOB.getText().toString().trim());
+        values.put("sEmail", edtStudentEmail.getText().toString().trim());
         values.put("sPassword", edtStudentPassword.getText().toString());
 
         int rows = db.update("students", values, "sID = ?", new String[]{sID});

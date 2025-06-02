@@ -44,9 +44,9 @@ public class ViewInstructorList extends AppCompatActivity {
             intent.putExtra("iID", selectedInstructor.iID);
             intent.putExtra("iName", selectedInstructor.iName);
             intent.putExtra("iSurname", selectedInstructor.iSurname);
-            intent.putExtra("iPassword", selectedInstructor.iPassword); // Assuming this exists
+            intent.putExtra("iPassword", selectedInstructor.iPassword);
             intent.putExtra("iEmail", selectedInstructor.iEmail);
-            startActivity(intent); // No need for startActivityForResult
+            startActivity(intent);
         });
     }
 

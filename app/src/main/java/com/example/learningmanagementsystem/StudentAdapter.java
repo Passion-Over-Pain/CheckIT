@@ -33,7 +33,7 @@ public class StudentAdapter extends ArrayAdapter<Student> {
 
         txtName.setText(student.sName + " " + student.sSurname);
         txtDOB.setText("DOB: " + student.sDOB);
-        txtEmail.setText(student.sID + "@mandela.ac.za");
+        txtEmail.setText("Email: " + student.sEmail);
 
         return convertView;
     }

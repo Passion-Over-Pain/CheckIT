@@ -44,6 +44,8 @@ public class ViewStudentList extends AppCompatActivity {
         int sName = cursor.getColumnIndex("sName");
         int sSurname = cursor.getColumnIndex("sSurname");
         int sDOB = cursor.getColumnIndex("sDOB");
+        int sEmail = cursor.getColumnIndex("sEmail");
+        int sPassword = cursor.getColumnIndex("sPassword");
 
         if (cursor.moveToFirst()) {
             do {
@@ -52,6 +54,8 @@ public class ViewStudentList extends AppCompatActivity {
                 stu.sName = cursor.getString(sName);
                 stu.sSurname = cursor.getString(sSurname);
                 stu.sDOB = cursor.getString(sDOB);
+                stu.sEmail = cursor.getString(sEmail);
+                stu.sPassword = cursor.getString(sPassword);
                 stud.add(stu);
             } while (cursor.moveToNext());
 
@@ -67,6 +71,8 @@ public class ViewStudentList extends AppCompatActivity {
             intent.putExtra("sName", selectedStudent.sName);
             intent.putExtra("sSurname", selectedStudent.sSurname);
             intent.putExtra("sDOB", selectedStudent.sDOB);
+            intent.putExtra("sEmail", selectedStudent.sEmail);
+            intent.putExtra("sPassword",selectedStudent.sPassword);
             startActivity(intent);
         });
 
@@ -88,6 +94,8 @@ public class ViewStudentList extends AppCompatActivity {
         int sName = cursor.getColumnIndex("sName");
         int sSurname = cursor.getColumnIndex("sSurname");
         int sDOB = cursor.getColumnIndex("sDOB");
+        int sEmail = cursor.getColumnIndex("sEmail");
+        int sPassword = cursor.getColumnIndex("sPassword");
 
         if (cursor.moveToFirst()) {
             do {
@@ -96,6 +104,8 @@ public class ViewStudentList extends AppCompatActivity {
                 stu.sName = cursor.getString(sName);
                 stu.sSurname = cursor.getString(sSurname);
                 stu.sDOB = cursor.getString(sDOB);
+                stu.sEmail = cursor.getString(sEmail);
+                stu.sPassword = cursor.getString(sPassword);
                 stud.add(stu);
             } while (cursor.moveToNext());
         }

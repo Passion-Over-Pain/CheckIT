@@ -21,7 +21,7 @@ import java.util.Calendar;
 
 public class CreateStudent extends AppCompatActivity {
 
-    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB, edtStudentPassword;
+    EditText edtStudentID, edtStudentName, edtStudentSurname, edtStudentDOB,edtStudentEmail, edtStudentPassword;
     Button btnSubmit, btnView;
 
     @Override
@@ -30,16 +30,12 @@ public class CreateStudent extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_create_student);
 
-//        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-//            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-//            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-//            return insets;
-//        });
 
         edtStudentID = findViewById(R.id.edtStudentID);
         edtStudentName = findViewById(R.id.edtStudentName);
         edtStudentSurname = findViewById(R.id.edtStudentSurname);
         edtStudentDOB = findViewById(R.id.edtStudentDOB);
+        edtStudentEmail = findViewById(R.id.edtStudentEmail);
         edtStudentPassword = findViewById(R.id.edtStudentPassword);
         btnSubmit = findViewById(R.id.btnSubmitStudent);
 
@@ -87,19 +83,21 @@ public class CreateStudent extends AppCompatActivity {
             String sName = edtStudentName.getText().toString();
             String sSurname = edtStudentSurname.getText().toString();
             String sDOB = edtStudentDOB.getText().toString();
+            String sEmail = edtStudentEmail.getText().toString();
             String sPassword = edtStudentPassword.getText().toString();
 
             SQLiteDatabase db = DatabaseManager.getDB(this);
-            db.execSQL("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, sID VARCHAR, sName VARCHAR, sSurname VARCHAR,sPassword VARCHAR, sDOB VARCHAR)");
+            db.execSQL("CREATE TABLE IF NOT EXISTS students (id INTEGER PRIMARY KEY AUTOINCREMENT, sID VARCHAR, sName VARCHAR, sSurname VARCHAR, sDOB VARCHAR, sEmail VARCHAR, sPassword VARCHAR)");
 
-            String sql = "INSERT INTO students (sID, sName, sSurname, sPassword, sDOB ) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO students (sID, sName, sSurname,  sDOB, sEmail, sPassword) VALUES (?, ?, ?, ?, ?, ?)";
             SQLiteStatement statement = db.compileStatement(sql);
 
             statement.bindString(1, sID);
             statement.bindString(2, sName);
             statement.bindString(3, sSurname);
-            statement.bindString(4, sPassword);
-            statement.bindString(5, sDOB);
+            statement.bindString(4, sDOB);
+            statement.bindString(5, sEmail);
+            statement.bindString(6, sPassword);
 
             statement.executeInsert();
             Toast.makeText(this, "SUCCESS: Student Record Added", Toast.LENGTH_LONG).show();
@@ -108,6 +106,7 @@ public class CreateStudent extends AppCompatActivity {
             edtStudentName.setText("");
             edtStudentSurname.setText("");
             edtStudentDOB.setText("");
+            edtStudentEmail.setText("");
             edtStudentPassword.setText("");
         } catch (Exception ex) {
             Toast.makeText(this, "FAILED: " + ex.getMessage(), Toast.LENGTH_LONG).show();

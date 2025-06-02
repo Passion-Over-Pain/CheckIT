@@ -40,14 +40,14 @@ public class UpdateInstructor extends AppCompatActivity {
         String iName = intent.getStringExtra("iName");
         String iSurname = intent.getStringExtra("iSurname");
         String iEmail = intent.getStringExtra("iEmail");
+        String iPassword = intent.getStringExtra("iPassword");
 
         // Prefill inputs
         edtInstructorID.setText(iID);
-        edtInstructorID.setEnabled(false); // Primary Key - not editable
         edtInstructorName.setText(iName);
         edtInstructorSurname.setText(iSurname);
         edtInstructorEmail.setText(iEmail);
-        edtInstructorPassword.setText("password"); // Always blank for security
+        edtInstructorPassword.setText(iPassword);
 
         // Update logic
         btnUpdateInstructor.setOnClickListener(v -> updateInstructor());

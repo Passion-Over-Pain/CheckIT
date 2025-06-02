@@ -27,9 +27,9 @@ public class StudentDashboard extends AppCompatActivity {
 
         taskListView = findViewById(R.id.taskListView);
 
-        SharedPreferences prefs = getSharedPreferences("MyPrefs", MODE_PRIVATE);
-        String firstName = prefs.getString("firstname", "DefaultFirst");
-        String lastName = prefs.getString("lastname", "DefaultLast");
+        SharedPreferences prefs = getSharedPreferences("LMSAppPrefs", MODE_PRIVATE);
+        String firstName = prefs.getString("firstname", "N/A");
+        String lastName = prefs.getString("lastname", "N/A");
 
         if (firstName != null && lastName != null) {
             studentFullName = firstName + " " + lastName;
