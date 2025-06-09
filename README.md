@@ -176,51 +176,67 @@ Once logged in you can create students and instructors whom you will login with 
 
 ## Screenshots
 
-Below are some screenshots that illustrate the core functionality and user experience across different roles in the application. (Coming Soon)
+Below are some screenshots that illustrate the core functionality and user experience across different roles in the application.
 
 ### 1. Login Screen
 Allows Admins, Instructors, and Students to securely log in based on their assigned role.
 
-![Login Screen](screenshots/login_screen.jpg)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/d41e0fe6-998d-4240-818e-00b00389e988"  height="600">
+</div>
+
+
+
 
 ---
 
 ### 2. Admin Dashboard
 Admins can manage Students, Modules, and Instructors from a centralized interface.
 
-![Admin Dashboard](screenshots/admin_dashboard.jpg)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/78a24351-2071-48bf-89d8-c8d9ed814792"  height="600">
+</div>
 
 ---
 
 ### 3. Add Student Screen
 Admins can register students into the system by filling in essential information.
 
-![Add Student](screenshots/add_student.jpg)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/43161dfa-14b8-4942-9933-53db491efe4a"  height="600">
+</div>
 
 ---
 
 ### 4. Instructor Dashboard
 Instructors can view modules and assign tasks to students.
 
-![Instructor Dashboard](screenshots/instructor_dashboard.jpg)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/60703f96-6ec6-4f18-868f-50e08b3c2914"  height="600">
+</div>
 
 ---
 
-### 5. Add Task Screen
-Instructors can specify task details, due dates, and assign them to modules.
+### 5. View Task Screen
+Instructors view the current list of tasks and which student has each task.
 
-![Add Task](screenshots/add_task.jpg)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/4e67127e-f48d-4afb-b32a-64674deae01d"  height="600">
+</div>
+
 
 ---
 
 ### 6. Student Task View
 Students can view all assigned tasks and mark them as completed.
 
-![Student Task View](screenshots/student_tasks.jpg)
+<div align="center">
+<img src="https://github.com/user-attachments/assets/3660328d-618b-493d-b2f2-d86018416773"  height="600">
+</div>
 
 ## Demo Video
 
-A short demonstration video has been recorded to showcase the key features and functionality of our Learning Management System Android app. The video walks through the experience of each role: Admin, Instructor, and Student.
+A short demonstration video has been recorded to showcase the key features and functionality of our Learning Management System Android app. The video walks through the experience of each role: Admin, Instructor, and Student. (Coming Soon)
 
  [Click here to watch the demo video](https://your-demo-video-link.com)
 
