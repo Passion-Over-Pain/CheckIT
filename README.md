@@ -1,6 +1,6 @@
 # Learning Management System (LMS) — Android App 
-
-A role-based learning management system developed in Android using Java, implementing CRUD operations for students, instructors, modules, and tasks. The system features secure login and dynamic dashboards for each user role (Admin, Instructor, Student).
+> [!Tip] 
+> This is an Android application for managing student tasks with role-based login for Admin, Instructor, and Student. You can download the latest release of the app directly from the [Releases](https://github.com/Passion-Over-Pain/IMOB-Assignment/releases/download/v1.0/lms-v1.apk) section.
 
 ---
 
@@ -157,7 +157,7 @@ The application has been packaged and signed as an APK for easy installation on 
 
 ### Step 1: Download the APK
 
-You can download the latest signed release directly from the [Releases](https://github.com/your-repo/releases) section of this GitHub repository.
+You can download the latest signed release directly from the [Latest Releases](https://github.com/Passion-Over-Pain/IMOB-Assignment/releases/download/v1.0/lms-v1.apk) section of this GitHub repository.
 
 ### Step 2: Install on Your Android Device
 
