@@ -1,4 +1,8 @@
 # Learning Management System (LMS) — Android App 
+
+
+![lms](https://github.com/user-attachments/assets/5c4fb590-4aca-40d7-9b87-4e5978e1c2d1)
+
 > [!Tip] 
 > This is an Android application for managing student tasks with role-based login for Admin, Instructor, and Student. You can download the latest release of the app directly from the [Releases](https://github.com/Passion-Over-Pain/IMOB-Assignment/releases/download/v1.0/lms-v1.apk) section.
 
