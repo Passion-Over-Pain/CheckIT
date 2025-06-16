@@ -188,8 +188,10 @@ Below are some screenshots that illustrate the core functionality and user exper
 Allows Admins, Instructors, and Students to securely log in based on their assigned role.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/d41e0fe6-998d-4240-818e-00b00389e988"  height="600">
+<img src="https://github.com/user-attachments/assets/5cc5b8b7-007c-4424-9191-69eba44d4397"  height="600">
 </div>
+
+
 
 
 
@@ -200,7 +202,7 @@ Allows Admins, Instructors, and Students to securely log in based on their assig
 Admins can manage Students, Modules, and Instructors from a centralized interface.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/78a24351-2071-48bf-89d8-c8d9ed814792"  height="600">
+<img src="https://github.com/user-attachments/assets/c09281d6-9acb-478d-a834-cac411e968ac"  height="600">
 </div>
 
 ---
@@ -209,8 +211,9 @@ Admins can manage Students, Modules, and Instructors from a centralized interfac
 Admins can register students into the system by filling in essential information.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/43161dfa-14b8-4942-9933-53db491efe4a"  height="600">
+<img src="https://github.com/user-attachments/assets/c077a18e-0a79-47a2-b5b5-f51e4a7aa385"  height="600">
 </div>
+
 
 ---
 
@@ -218,7 +221,7 @@ Admins can register students into the system by filling in essential information
 Instructors can view modules and assign tasks to students.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/60703f96-6ec6-4f18-868f-50e08b3c2914"  height="600">
+<img src="https://github.com/user-attachments/assets/0fb42475-2233-4036-a2d7-a9ad23fb450b"  height="600">
 </div>
 
 ---
@@ -227,9 +230,8 @@ Instructors can view modules and assign tasks to students.
 Instructors view the current list of tasks and which student has each task.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/4e67127e-f48d-4afb-b32a-64674deae01d"  height="600">
+<img src="https://github.com/user-attachments/assets/2c8386a1-764e-4c62-af6e-8c47a3c66591"  height="600">
 </div>
-
 
 ---
 
@@ -237,7 +239,7 @@ Instructors view the current list of tasks and which student has each task.
 Students can view all assigned tasks and mark them as completed.
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/3660328d-618b-493d-b2f2-d86018416773"  height="600">
+<img src="https://github.com/user-attachments/assets/9205f1f0-c077-40bf-ab5b-cd36c67aaf9e"  height="600">
 </div>
 
 ## Demo Video
