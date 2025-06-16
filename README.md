@@ -50,7 +50,9 @@ This project was completed by the following group members:
   GitHub Profile: [Juanette's GitHub](https://github.com/JuanetteRViljoen)
 
 - **Mthi Mzimba**<br>
-  <img src="https://github.com/user-attachments/assets/1b65e2b7-c1a4-481a-987c-ee253db2e171" width="100" /><br>
+
+
+  <img src="https://github.com/user-attachments/assets/ea40c523-d728-498b-97f4-8bcc88ecca95" width="100" /><br>
   GitHub Profile: *Coming Soon*
 
 - **Tinotenda Mhedziso**  
@@ -58,7 +60,7 @@ This project was completed by the following group members:
   GitHub Profile: [Tinotenda's GitHub](https://github.com/Passion-Over-Pain)
 
 - **Zanele Shandu** <br>
-  <img src="https://github.com/user-attachments/assets/183298c3-3fe5-4df4-82fa-484ecb57470f" width="100" /><br>
+  <img src="https://github.com/user-attachments/assets/59826cb3-f0c6-4440-aee3-66b7f772f0ad" width="100" /><br>
   GitHub Profile: *Coming Soon*
 
 
