@@ -1,10 +1,10 @@
-# Learning Management System (LMS) — Android App 
+# CheckIT Learning Management System (LMS)
 
 
 ![lms](https://github.com/user-attachments/assets/5c4fb590-4aca-40d7-9b87-4e5978e1c2d1)
 
 > [!Tip] 
-> This is an Android application for managing student tasks with role-based login for Admin, Instructor, and Student. You can download the latest release of the app directly from the [Releases](https://github.com/Passion-Over-Pain/IMOB-Assignment/releases/download/v1.0/lms-v1.apk) section.
+> CheckIT is an Android app for managing student tasks with role-based login for Admin, Instructor, and Student. You can download the latest release of the app directly from the [Releases](https://github.com/Passion-Over-Pain/IMOB-Assignment/releases/download/v1.0/lms-v1.apk) section.
 
 ---
 
@@ -25,7 +25,7 @@
 
 ## Project Overview
 
-This Learning Management System (LMS) Android application was developed to support streamlined task management for students within an academic environment. The application features a role-based login system, enabling three distinct user types—Admin, Instructor, and Student—to access specific functionalities tailored to their roles.
+This Android application was developed to support streamlined task management for students within an academic environment. The application features a role-based login system, enabling three distinct user types—Admin, Instructor, and Student—to access specific functionalities tailored to their roles.
 
 - **Admins** can manage core academic entities including student records, module data, and instructor accounts.
 - **Instructors** are able to create and assign academic tasks to students.
