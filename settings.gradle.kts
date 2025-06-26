@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Learning Management System"
+rootProject.name = "checkit"
 include(":app")

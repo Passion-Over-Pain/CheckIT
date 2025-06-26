@@ -7,7 +7,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.learningmanagementsystem"
+        applicationId = "com.example.checkit"
         minSdk = 21
         targetSdk = 35
         versionCode = 1
@@ -17,7 +17,7 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("C:\\Users\\s227284240\\Desktop\\GitHub-Projects\\IMOB-Assignment\\app\\release\\my-release-key.jks")
+            storeFile = file("C:\\Users\\s227284240\\Desktop\\Keys\\my-release-key.jks")
             storePassword = "password"
             keyAlias = "my-key-alias"
             keyPassword = "password"
